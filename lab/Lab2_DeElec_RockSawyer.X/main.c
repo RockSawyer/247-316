@@ -2,7 +2,15 @@
  * @file   main.c, projet Lab1
  * @author 
  * @date   
- * @brief  
+ * @brief   Deux dés électroniques, éteints au départ. En appuyant une 1re fois 
+            sur le bouton, le dé de gauche se brasse, les DEL passent très
+            rapidement de 1 à 6. En appuyant, une seconde fois sur le bouton, on
+            arrête le dé de gauche, le résultat reste affiché et le dé de droite
+            reste éteint. En appuyant pour une 3e fois sur le bouton, le
+            dé de droite se brasse et le dé de gauche s?éteint. Appuyer sur le  
+            bouton une 4e fois, le dé de droite cesse de brasser, le 
+            résultat reste affiché et le dé de gauche demeure éteint. Après 
+            cette 5e étape, appuyer sur le bouton recommence. 
  * @version 1.0
  * Environnement:
  *     Développement: MPLAB X IDE (version 6.05)
@@ -19,17 +27,13 @@
 #define GAUCHE true
 #define DROITE false
 
-void initialisation(void);
-//void testDe(void);
-void afficheDe(int chiffre, int deGouD);
+void initialisation(void); //fonction qui initialise le pic
+void afficheDe(int chiffre, int deGouD);    //fonction affichant le dé
 
 void main(void)
 {
     initialisation();
-    //testDe();
-    // init_serie();
-    
-    //int valeurDe = 0;
+   
     
     
     while(1) //boucle principale
@@ -37,23 +41,23 @@ void main(void)
         
         int i = 0;
         int j = 0;
-        for(i=0; i<6 ;i++)
+        for(i=0; i<6 ;i++)  //1re boucle qui brasse le dé de gauche
         {
-            //valeurDe = i;
+            
             afficheDe(i, GAUCHE);
             __delay_ms(500);
             
         }
-        for(j=0; j<6; j++)//2e boucle pour le dé de droite
+        for(j=0; j<6; j++)  //2e boucle pour le dé de droite
         {
             afficheDe(j, DROITE);
             __delay_ms(500);
         }
             
             
-        PORTDbits.RD7 = PORTDbits.RD7 ^ 1; //On change l'état de la DEL 0
+        //PORTDbits.RD7 = PORTDbits.RD7 ^ 1; //On change l'état de la DEL 0
         //__delay_ms(300); //pour laisser le temps de voir la DEL à son nouvel état
-        //testDe();
+        
         
      }
 }
@@ -91,35 +95,3 @@ void afficheDe(int chiffre, int deGouD)
     
     
 }
-   
-    
-
-
-
-
-/**
- * @brief affiche secantiellement les valeur de 1 a 6 pour chacun des de
- * @param Aucun
- * @return Aucun
- */
-/*void testDe(void)
-{
-    int i = 0;
-    int j = 0;
-    int tableauDe[6] = {7,11,3,10,2,8};
-    PORTDbits.RD0 = 1;
-    for(int i=0; i<6; i++)
-    {
-        PORTC = tableauDe[i];
-        __delay_ms(500);
-    }
-        
-    PORTDbits.RD0 = 0;
-    for(int j=0; i<6; i++)
-    {
-        PORTC = tableauDe[i];
-        __delay_ms(500);        
-    }
-}*/
-
-

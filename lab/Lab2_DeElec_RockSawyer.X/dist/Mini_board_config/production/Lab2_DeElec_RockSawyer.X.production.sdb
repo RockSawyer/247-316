@@ -25,11 +25,11 @@
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\Umul64.c
 [v ___omul __omul `(ul  1 e 4 0 ]
-"26 C:\Users\Rock\Documents\GitHub\247-316\lab\Lab2_DeElec_RockSawyer.X\main.c
+"33 C:\Users\Rock\Documents\GitHub\247-316\lab\Lab2_DeElec_RockSawyer.X\main.c
 [v _main main `A(v  1 e 1 0 ]
-"67
+"71
 [v _initialisation initialisation `A(v  1 e 1 0 ]
-"85
+"89
 [v _afficheDe afficheDe `A(v  1 e 1 0 ]
 "446 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f45k20.h
 [v _ANSEL ANSEL `VEuc  1 e 1 @3966 ]
@@ -39,7 +39,7 @@
 [v _PORTC PORTC `VEuc  1 e 1 @3970 ]
 "1184
 [v _PORTD PORTD `VEuc  1 e 1 @3971 ]
-[s S40 . 1 `uc 1 RD0 1 0 :1:0 
+[s S46 . 1 `uc 1 RD0 1 0 :1:0 
 `uc 1 RD1 1 0 :1:1 
 `uc 1 RD2 1 0 :1:2 
 `uc 1 RD3 1 0 :1:3 
@@ -49,7 +49,7 @@
 `uc 1 RD7 1 0 :1:7 
 ]
 "1221
-[s S49 . 1 `uc 1 PSP0 1 0 :1:0 
+[s S55 . 1 `uc 1 PSP0 1 0 :1:0 
 `uc 1 PSP1 1 0 :1:1 
 `uc 1 PSP2 1 0 :1:2 
 `uc 1 PSP3 1 0 :1:3 
@@ -58,16 +58,16 @@
 `uc 1 PSP6 1 0 :1:6 
 `uc 1 PSP7 1 0 :1:7 
 ]
-[s S58 . 1 `uc 1 . 1 0 :5:0 
+[s S64 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 P1B 1 0 :1:5 
 `uc 1 P1C 1 0 :1:6 
 `uc 1 P1D 1 0 :1:7 
 ]
-[s S63 . 1 `uc 1 . 1 0 :7:0 
+[s S69 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 SS2 1 0 :1:7 
 ]
-[u S66 . 1 `S40 1 . 1 0 `S49 1 . 1 0 `S58 1 . 1 0 `S63 1 . 1 0 ]
-[v _PORTDbits PORTDbits `VES66  1 e 1 @3971 ]
+[u S72 . 1 `S46 1 . 1 0 `S55 1 . 1 0 `S64 1 . 1 0 `S69 1 . 1 0 ]
+[v _PORTDbits PORTDbits `VES72  1 e 1 @3971 ]
 "2254
 [v _TRISB TRISB `VEuc  1 e 1 @3987 ]
 "2476
@@ -178,29 +178,29 @@
 [v _BAUDCONbits BAUDCONbits `VES188  1 e 1 @4024 ]
 "8634
 [v _RCIF RCIF `VEb  1 e 0 @31989 ]
-"26 C:\Users\Rock\Documents\GitHub\247-316\lab\Lab2_DeElec_RockSawyer.X\main.c
+"33 C:\Users\Rock\Documents\GitHub\247-316\lab\Lab2_DeElec_RockSawyer.X\main.c
 [v _main main `A(v  1 e 1 0 ]
 {
-"39
+"43
 [v main@j j `i  1 a 2 19 ]
-"38
+"42
 [v main@i i `i  1 a 2 17 ]
-"59
+"63
 } 0
-"67
+"71
 [v _initialisation initialisation `A(v  1 e 1 0 ]
 {
-"77
+"81
 } 0
-"85
+"89
 [v _afficheDe afficheDe `A(v  1 e 1 0 ]
 {
-"87
+"91
 [v afficheDe@tableauDe tableauDe `[6]i  1 a 12 4 ]
-"85
+"89
 [v afficheDe@chiffre chiffre `i  1 p 2 0 ]
 [v afficheDe@deGouD deGouD `i  1 p 2 2 ]
-"86
+"90
 [v afficheDe@F2589 F2589 `[6]i  1 s 12 F2589 ]
-"93
+"97
 } 0

@@ -4836,16 +4836,16 @@ char getch(void);
 char getche(void);
 __bit kbhit(void);
 
-# 22 "main.c"
+# 30 "main.c"
 void initialisation(void);
-
 void afficheDe(int chiffre, int deGouD);
 
 void main(void)
 {
 initialisation();
 
-# 35
+
+
 while(1)
 {
 
@@ -4864,15 +4864,11 @@ afficheDe(j, 0);
 _delay((unsigned long)((500)*(1000000/4000.0)));
 }
 
-
-PORTDbits.RD7 = PORTDbits.RD7 ^ 1;
-
-
-
+# 62
 }
 }
 
-# 67
+# 71
 void initialisation(void)
 {
 TRISD = 0;
@@ -4885,7 +4881,7 @@ TRISB = 0xFF;
 PORTD = 0;
 }
 
-# 85
+# 89
 void afficheDe(int chiffre, int deGouD)
 {
 int tableauDe[6] = {7,11,3,10,2,8};
@@ -4895,4 +4891,3 @@ PORTDbits.RD0 = deGouD;
 
 
 }
-

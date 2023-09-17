@@ -1,14 +1,26 @@
 Version 3.2 HI-TECH Software Intermediate Code
 [p mainexit ]
-"22 main.c
+"30 main.c
 [v _initialisation `(v ~T0 @X0 0 ef ]
-"24
+"31
 [v _afficheDe `(v ~T0 @X0 0 ef2`i`i ]
 [v F38 `(v ~T0 @X0 1 tf1`ul ]
 "12 C:\Program Files\Microchip\xc8\v2.41\pic\include\builtins.h
 [v __delay `JF38 ~T0 @X0 0 e ]
 [p i __delay ]
-"1190 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f45k20.h
+"2698 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f45k20.h
+[v _TRISD `Vuc ~T0 @X0 0 e@3989 ]
+"2476
+[v _TRISC `Vuc ~T0 @X0 0 e@3988 ]
+"508
+[v _ANSELH `Vuc ~T0 @X0 0 e@3967 ]
+"2254
+[v _TRISB `Vuc ~T0 @X0 0 e@3987 ]
+"1184
+[v _PORTD `Vuc ~T0 @X0 0 e@3971 ]
+"996
+[v _PORTC `Vuc ~T0 @X0 0 e@3970 ]
+"1190
 [s S47 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S47 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
 "1200
@@ -25,18 +37,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S46 . . . . . ]
 "1221
 [v _PORTDbits `VS46 ~T0 @X0 0 e@3971 ]
-"2698
-[v _TRISD `Vuc ~T0 @X0 0 e@3989 ]
-"2476
-[v _TRISC `Vuc ~T0 @X0 0 e@3988 ]
-"508
-[v _ANSELH `Vuc ~T0 @X0 0 e@3967 ]
-"2254
-[v _TRISB `Vuc ~T0 @X0 0 e@3987 ]
-"1184
-[v _PORTD `Vuc ~T0 @X0 0 e@3971 ]
-"996
-[v _PORTC `Vuc ~T0 @X0 0 e@3970 ]
 [; ;xc.h: 18: extern const char __xc8_OPTIM_SPEED;
 [; ;xc.h: 20: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -3020,144 +3020,141 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;serie.h: 13: char getch(void);
 [; ;serie.h: 14: char getche(void);
 [; ;serie.h: 15: __bit kbhit(void);
-[; ;main.c: 22: void initialisation(void);
-[; ;main.c: 24: void afficheDe(int chiffre, int deGouD);
+[; ;main.c: 30: void initialisation(void);
+[; ;main.c: 31: void afficheDe(int chiffre, int deGouD);
 [v $root$_main `(v ~T0 @X0 0 e ]
 [v F2578 `(v ~T0 @X0 1 tf ]
-"26 main.c
+"33 main.c
 [v _main `AF2578 ~T0 @X0 1 e ]
-"27
+"34
 {
-[; ;main.c: 26: void main(void)
-[; ;main.c: 27: {
+[; ;main.c: 33: void main(void)
+[; ;main.c: 34: {
 [e :U _main ]
 [f ]
-[; ;main.c: 28: initialisation();
-"28
-[e ( _initialisation ..  ]
-[; ;main.c: 35: while(1)
+[; ;main.c: 35: initialisation();
 "35
-[e :U 298 ]
-[; ;main.c: 36: {
-"36
-{
-"38
-[v _i `i ~T0 @X0 1 a ]
-[; ;main.c: 38: int i = 0;
-[e = _i -> 0 `i ]
+[e ( _initialisation ..  ]
+[; ;main.c: 39: while(1)
 "39
-[v _j `i ~T0 @X0 1 a ]
-[; ;main.c: 39: int j = 0;
-[e = _j -> 0 `i ]
-[; ;main.c: 40: for(i=0; i<6 ;i++)
+[e :U 298 ]
+[; ;main.c: 40: {
 "40
+{
+"42
+[v _i `i ~T0 @X0 1 a ]
+[; ;main.c: 42: int i = 0;
+[e = _i -> 0 `i ]
+"43
+[v _j `i ~T0 @X0 1 a ]
+[; ;main.c: 43: int j = 0;
+[e = _j -> 0 `i ]
+[; ;main.c: 44: for(i=0; i<6 ;i++)
+"44
 {
 [e = _i -> 0 `i ]
 [e $ < _i -> 6 `i 300  ]
 [e $U 301  ]
-"41
+"45
 [e :U 300 ]
-[; ;main.c: 41: {
+[; ;main.c: 45: {
 {
-[; ;main.c: 43: afficheDe(i, 1);
-"43
+[; ;main.c: 47: afficheDe(i, 1);
+"47
 [e ( _afficheDe (2 , _i -> 1 `i ]
-[; ;main.c: 44: _delay((unsigned long)((500)*(1000000/4000.0)));
-"44
+[; ;main.c: 48: _delay((unsigned long)((500)*(1000000/4000.0)));
+"48
 [e ( __delay (1 -> * -> -> 500 `i `d / -> -> 1000000 `l `d .4000.0 `ul ]
-"46
+"50
 }
-"40
+"44
 [e ++ _i -> 1 `i ]
 [e $ < _i -> 6 `i 300  ]
 [e :U 301 ]
-"46
+"50
 }
-[; ;main.c: 46: }
-[; ;main.c: 47: for(j=0; j<6; j++)
-"47
+[; ;main.c: 50: }
+[; ;main.c: 51: for(j=0; j<6; j++)
+"51
 {
 [e = _j -> 0 `i ]
 [e $ < _j -> 6 `i 303  ]
 [e $U 304  ]
-"48
+"52
 [e :U 303 ]
-[; ;main.c: 48: {
+[; ;main.c: 52: {
 {
-[; ;main.c: 49: afficheDe(j, 0);
-"49
+[; ;main.c: 53: afficheDe(j, 0);
+"53
 [e ( _afficheDe (2 , _j -> 0 `i ]
-[; ;main.c: 50: _delay((unsigned long)((500)*(1000000/4000.0)));
-"50
+[; ;main.c: 54: _delay((unsigned long)((500)*(1000000/4000.0)));
+"54
 [e ( __delay (1 -> * -> -> 500 `i `d / -> -> 1000000 `l `d .4000.0 `ul ]
-"51
+"55
 }
-"47
+"51
 [e ++ _j -> 1 `i ]
 [e $ < _j -> 6 `i 303  ]
 [e :U 304 ]
-"51
+"55
 }
-[; ;main.c: 51: }
-[; ;main.c: 54: PORTDbits.RD7 = PORTDbits.RD7 ^ 1;
-"54
-[e = . . _PORTDbits 0 7 -> ^ -> . . _PORTDbits 0 7 `i -> 1 `i `uc ]
-"58
+"62
 }
 [e :U 297 ]
-"35
+"39
 [e $U 298  ]
 [e :U 299 ]
-[; ;main.c: 58: }
-[; ;main.c: 59: }
-"59
+[; ;main.c: 55: }
+[; ;main.c: 62: }
+[; ;main.c: 63: }
+"63
 [e :UE 296 ]
 }
 [v F2584 `(v ~T0 @X0 1 tf ]
-"67
+"71
 [v _initialisation `AF2584 ~T0 @X0 1 e ]
-"68
+"72
 {
-[; ;main.c: 67: void initialisation(void)
-[; ;main.c: 68: {
+[; ;main.c: 71: void initialisation(void)
+[; ;main.c: 72: {
 [e :U _initialisation ]
 [f ]
-[; ;main.c: 69: TRISD = 0;
-"69
-[e = _TRISD -> -> 0 `i `uc ]
-[; ;main.c: 70: TRISC = 0;
-"70
-[e = _TRISC -> -> 0 `i `uc ]
-[; ;main.c: 73: ANSELH = 0;
+[; ;main.c: 73: TRISD = 0;
 "73
-[e = _ANSELH -> -> 0 `i `uc ]
-[; ;main.c: 74: TRISB = 0xFF;
+[e = _TRISD -> -> 0 `i `uc ]
+[; ;main.c: 74: TRISC = 0;
 "74
-[e = _TRISB -> -> 255 `i `uc ]
-[; ;main.c: 76: PORTD = 0;
-"76
-[e = _PORTD -> -> 0 `i `uc ]
-[; ;main.c: 77: }
+[e = _TRISC -> -> 0 `i `uc ]
+[; ;main.c: 77: ANSELH = 0;
 "77
+[e = _ANSELH -> -> 0 `i `uc ]
+[; ;main.c: 78: TRISB = 0xFF;
+"78
+[e = _TRISB -> -> 255 `i `uc ]
+[; ;main.c: 80: PORTD = 0;
+"80
+[e = _PORTD -> -> 0 `i `uc ]
+[; ;main.c: 81: }
+"81
 [e :UE 306 ]
 }
 [v F2587 `(v ~T0 @X0 1 tf2`i`i ]
-"85
+"89
 [v _afficheDe `AF2587 ~T0 @X0 1 e ]
-"86
+"90
 {
-[; ;main.c: 85: void afficheDe(int chiffre, int deGouD)
-[; ;main.c: 86: {
+[; ;main.c: 89: void afficheDe(int chiffre, int deGouD)
+[; ;main.c: 90: {
 [e :U _afficheDe ]
-"85
+"89
 [v _chiffre `i ~T0 @X0 1 r1 ]
 [v _deGouD `i ~T0 @X0 1 r2 ]
-"86
+"90
 [f ]
 [v F2589 `i ~T0 @X0 -> 6 `i s ]
 [i F2589
 :U ..
-"87
+"91
 -> 7 `i
 -> 11 `i
 -> 3 `i
@@ -3167,15 +3164,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 ..
 ]
 [v _tableauDe `i ~T0 @X0 -> 6 `i a ]
-[; ;main.c: 87: int tableauDe[6] = {7,11,3,10,2,8};
+[; ;main.c: 91: int tableauDe[6] = {7,11,3,10,2,8};
 [e = _tableauDe F2589 ]
-[; ;main.c: 89: PORTC = tableauDe[chiffre];
-"89
-[e = _PORTC -> *U + &U _tableauDe * -> -> _chiffre `ui `ux -> -> # *U &U _tableauDe `ui `ux `uc ]
-[; ;main.c: 90: PORTDbits.RD0 = deGouD;
-"90
-[e = . . _PORTDbits 0 0 -> _deGouD `uc ]
-[; ;main.c: 93: }
+[; ;main.c: 93: PORTC = tableauDe[chiffre];
 "93
+[e = _PORTC -> *U + &U _tableauDe * -> -> _chiffre `ui `ux -> -> # *U &U _tableauDe `ui `ux `uc ]
+[; ;main.c: 94: PORTDbits.RD0 = deGouD;
+"94
+[e = . . _PORTDbits 0 0 -> _deGouD `uc ]
+[; ;main.c: 97: }
+"97
 [e :UE 307 ]
 }
