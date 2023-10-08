@@ -35,23 +35,27 @@ void initialisation(void); //fonction qui initialise le pic
 //void afficheDe(int chiffre, int deGouD);    //fonction affichant le dé
 void setDel(int ligne, int colonne);   //fct qui affiche la DEL 
 //void
-/*void testMatrice(void);
-bool deplace(int sens, int* ptrLigne, int* ptrColonne);
+void testMatrice(void);
+/*bool deplace(int sens, int* ptrLigne, int* ptrColonne);
 void affichePerdu(void);
 void getSens(int *nouveauSens);*/
 
 void main(void)
 {
     initialisation();
-    //testMatrice();
+    testMatrice();
     /*int sens;
     int ligne;
     int colonne;*/
-    //int a = 1;
-    //int b = 1;
-    setDel(1, 1);
+    /*int L = 3;
+    int C = 2;
+    setDel(L, C);*/
     //PORTB = 0b00000010;
     //PORTC = 0b11111100;
+    //PORTB = 8;
+    //PORTC = 246;
+            
+                 
     NOP();
    
     
@@ -128,11 +132,33 @@ void setDel(int ligne, int colonne)
 {
     //int tempLi = 0;
     //int tempCo = 0;
-    int tableauLi[6] = {0, 12, 11, 2, 9, 4};
-    int tableauCo[6] = {0, 1, 3, 10, 7, 8};
+    int tableauLi[6] = {0, 0b10, 0b100, 0b1000, 0b10000, 0b100000};
+    int tableauCo[6] = {0,0b11111100, 0b11111010, 0b11110110, 0b11101110, 0b11011110};
+    
     
     
     PORTB = tableauLi[ligne];
     PORTC = tableauCo[colonne];
     //PORTDbits.RD0 = deGouD;
 }
+
+/**
+ * @brief affiche secantiellement chaque DEL de la matrice
+ * @param int ligne qui sera la serie de DEL sur l'axe des x
+ * @param int colonne qui sera la série de DEL sur l'axe des y
+ * @return Aucun
+ */
+
+void testMatrice(void)
+{
+    for (int i = 0; i < 6; i++)
+    {
+        for (int j = 0; j < 6; j++)
+        {
+            setDel(i,j);
+            __delay_ms(300);
+        }
+    }
+}
+
+

@@ -1,5 +1,5 @@
 
-# 1 "main.c"
+# 1 "serie.c"
 
 # 18 "C:\Program Files\Microchip\xc8\v2.41\pic\include\xc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -4826,9 +4826,6 @@ __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer suppo
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 
-# 15 "C:\Program Files\Microchip\xc8\v2.41\pic\include\c90\stdbool.h"
-typedef unsigned char bool;
-
 # 11 "serie.h"
 void init_serie(void);
 void putch(char car);
@@ -4836,70 +4833,66 @@ char getch(void);
 char getche(void);
 __bit kbhit(void);
 
-# 34 "main.c"
-void initialisation(void);
-
-void setDel(int ligne, int colonne);
-
-void testMatrice(void);
-
-# 43
-void main(void)
-{
-initialisation();
-testMatrice();
-
-# 59
-__nop();
-
-
-
-while(1)
+# 24 "serie.c"
+void init_serie(void)
 {
 
-# 87
-}
+TRISCbits.TRISC7=1;
+TRISCbits.TRISC6=1;
+
+
+
+SPBRGH=0x00;
+SPBRG=25;
+BAUDCONbits.BRG16=1;
+TXSTAbits.BRGH=1;
+
+
+TXSTAbits.SYNC=0;
+TXSTAbits.TXEN=1;
+RCSTAbits.CREN = 1;
+RCSTAbits.SPEN=1;
+ANSEL = 0;
 }
 
-# 96
-void initialisation(void)
-{
-TRISB = 0;
-TRISC = 0;
-
-
-ANSELH = 0;
-
-
-PORTB = 0;
-PORTC = 1;
-}
-
-# 131
-void setDel(int ligne, int colonne)
+# 52
+void putch(char car)
 {
 
-
-int tableauLi[6] = {0, 0b10, 0b100, 0b1000, 0b10000, 0b100000};
-int tableauCo[6] = {0,0b11111100, 0b11111010, 0b11110110, 0b11101110, 0b11011110};
-
-
-
-PORTB = tableauLi[ligne];
-PORTC = tableauCo[colonne];
+while(TXSTAbits.TRMT==0);
+TXREG = car;
 
 }
 
-# 152
-void testMatrice(void)
+# 65
+char getch(void)
 {
-for (int i = 0; i < 6; i++)
-{
-for (int j = 0; j < 6; j++)
-{
-setDel(i,j);
-_delay((unsigned long)((300)*(1000000/4000.0)));
+unsigned char c;
+
+while (!RCIF)
+;
+c = RCREG;
+
+return c;
 }
+
+# 81
+char getche(void)
+{
+unsigned char c;
+while (!RCIF);
+c = RCREG;
+
+
+while(TXSTAbits.TRMT==0);
+TXREG = c;
+
+return c;
 }
+
+# 99
+__bit kbhit(void)
+{
+return RCIF;
 }
 
