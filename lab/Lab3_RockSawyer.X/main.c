@@ -151,12 +151,18 @@ void setDel(int ligne, int colonne)
 
 void testMatrice(void)
 {
-    for (int i = 0; i < 6; i++)
+    for (int i = 1; i < 6; i++)
     {
-        for (int j = 0; j < 6; j++)
+        __delay_ms(300);
+        for (int j = 1; j < 6; j++)
         {
             setDel(i,j);
             __delay_ms(300);
+            if(i == 6  j == 6)
+            {
+                PORTB = 0b00000000;
+                PORTC = 0b11111110;
+            }
         }
     }
 }
