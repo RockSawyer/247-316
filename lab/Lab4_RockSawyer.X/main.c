@@ -12,8 +12,8 @@
 
 #include <xc.h>
 #include <stdbool.h>  // pour l'utilisation du type bool
+#include "Lcd4Lignes.h"
 #include "serie.h"
-
 
 #define _XTAL_FREQ 1000000 //Constante utilisée par __delay_ms(x). Doit = fréq interne du uC
 //#define LIGNE true
@@ -30,30 +30,31 @@
 #define NBCOLONNE 5
 #define PORT_COLONNE PORTC
 #define PORT_LIGNE PORTB
+#define NB_MSG 3
+#define LONG_MSG 15
+
 
 void initialisation(void); //fonction qui initialise le pic
 //void afficheDe(int chiffre, int deGouD);    //fonction affichant le dé
-void setDel(int ligne, int colonne);   //fct qui affiche la DEL 
+//void setDel(int ligne, int colonne);   //fct qui affiche la DEL 
 //void
-void testMatrice(void);
-bool deplace(int sens, int* ptrLigne, int* ptrColonne);
+//void testMatrice(void);
+//bool deplace(int sens, int* ptrLigne, int* ptrColonne);
 //void affichePerdu(void);
 //void getSens(int *nouveauSens);
+void jouePendu(char* mot);
+void MenuAccueil(void);
+
+
 
 void main(void)
 {
     initialisation();
-    testMatrice();
-    int sens;
-    int ligne = 0;
-    int colonne = 0;
-    /*int L = 3;
-    int C = 2;
-    setDel(L, C);*/
-    //PORTB = 0b00000010;
-    //PORTC = 0b11111100;
-    //PORTB = 8;
-    //PORTC = 246;
+    lcd_init();
+    lcd_putMessage("1- Bonhomme pendu   2- Charivari");
+    //MenuAccueil();
+    char trouve[LONG_MSG];
+    char messages[NB_MSG][LONG_MSG] = {"1erMot","2eMot","3eMot" };
             
                  
     NOP();
@@ -62,6 +63,7 @@ void main(void)
     
     while(1) //boucle principale
     {   
+        
         
         /*int i = 0;
         int j = 0;
@@ -95,13 +97,13 @@ void main(void)
  */
 void initialisation(void)
 {
-    TRISB = 0;      //Tout le port B en sortie
-    TRISC = 0;      //tout le port C en sotie
+    TRISA = 0;      //Tout le port A en sortie
+    TRISB = 0;      //tout le port B en sotie
 
     //Attention! 
-    ANSELH = 0;     // RB0 à RB4 en mode digital. Sur 18F45K20 AN et PortB sont sur les memes broches
-    PORTB = 0;      //DEL du port B tous éteintes
-    PORTC = 1;      //DEL du port C tous éteintes
+    ANSEL = 0;     // PORTA en mode digital
+    //PORTA = 0;      //DEL du port B tous éteintes
+    //PORTD = 1;      //DEL du port C tous éteintes
     
     //Configuration du port analogique
     /*ANSELbits.ANS0 = 1;   //A0 en mode analogique
@@ -171,3 +173,37 @@ bool deplace(int sens, int* ptrLigne, int* ptrColonne)
 }
 
 
+/**
+ * @brief affiche la DEL de la matrice demander
+ * @param int tableauLi[6] qui sera la serie de DEL sur l'axe des x
+ * @param int tableauCo[6] qui sera la série de DEL sur l'axe des y
+ * @return Aucun
+ */
+
+void jouePendu(char *mot)
+{
+    char trouve[LONG_MSG];
+    for(int i = 0; i < LONG_MSG; i++)
+    {
+        trouve[i] = false;
+    }
+    do()
+    {
+        kbhit();
+    }
+}
+
+
+
+
+/**
+ * @brief affiche la DEL de la matrice demander
+ * @param int tableauLi[6] qui sera la serie de DEL sur l'axe des x
+ * @param int tableauCo[6] qui sera la série de DEL sur l'axe des y
+ * @return Aucun
+ */
+
+void MenuAccueil(void)
+{
+    lcd_putMessage("1- Bonhomme pendu\n2- Charivari\n");
+}

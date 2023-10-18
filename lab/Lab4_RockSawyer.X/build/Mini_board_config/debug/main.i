@@ -4829,6 +4829,39 @@ unsigned char __t3rd16on(void);
 # 15 "C:\Program Files\Microchip\xc8\v2.41\pic\include\c90\stdbool.h"
 typedef unsigned char bool;
 
+# 15
+typedef unsigned char bool;
+
+# 27 "Lcd4Lignes.h"
+void lcd_init(void);
+
+# 34
+void lcd_gotoXY(unsigned char x, unsigned char y);
+
+# 39
+void lcd_curseurHome(void);
+
+# 45
+void lcd_ecritChar(unsigned char car);
+
+# 51
+void lcd_putMessage(const unsigned char *chaine);
+
+# 56
+void lcd_effaceAffichage(void);
+
+# 62
+void lcd_effaceLigne(unsigned char y);
+
+# 68
+void lcd_effaceChar(unsigned char nbr);
+
+# 73
+void lcd_cacheCurseur(void);
+
+# 78
+void lcd_montreCurseur(void);
+
 # 11 "serie.h"
 void init_serie(void);
 void putch(char car);
@@ -4836,20 +4869,25 @@ char getch(void);
 char getche(void);
 __bit kbhit(void);
 
-# 34 "main.c"
+# 37 "main.c"
 void initialisation(void);
 
-void setDel(int ligne, int colonne);
+# 45
+void jouePendu(char* mot);
+void MenuAccueil(void);
 
-void testMatrice(void);
 
-# 43
+
 void main(void)
 {
 initialisation();
-testMatrice();
+lcd_init();
+lcd_putMessage("1- Bonhomme pendu   2- Charivari");
 
-# 59
+char trouve[15];
+char messages[3][15] = {"1erMot","2eMot","3eMot" };
+
+
 __nop();
 
 
@@ -4857,28 +4895,25 @@ __nop();
 while(1)
 {
 
-# 87
+# 89
 }
 }
 
-# 96
+# 98
 void initialisation(void)
 {
+TRISA = 0;
 TRISB = 0;
-TRISC = 0;
 
 
-ANSELH = 0;
+ANSEL = 0;
 
-
-PORTB = 0;
-PORTC = 1;
+# 115
 }
 
-# 131
+# 128
 void setDel(int ligne, int colonne)
 {
-
 
 int tableauLi[6] = {0, 0b10, 0b100, 0b1000, 0b10000, 0b100000};
 int tableauCo[6] = {0,0b11111100, 0b11111010, 0b11110110, 0b11101110, 0b11011110};
@@ -4890,7 +4925,7 @@ PORTC = tableauCo[colonne];
 
 }
 
-# 152
+# 148
 void testMatrice(void)
 {
 for (int i = 1; i < 6; i++)
@@ -4900,12 +4935,29 @@ for (int j = 1; j < 6; j++)
 {
 setDel(i,j);
 _delay((unsigned long)((300)*(1000000/4000.0)));
-if(i == 6 & j == 6)
-{
-PORTB = 0b00000000;
-PORTC = 0b11111110;
-}
+
 }
 }
 }
 
+# 170
+bool deplace(int sens, int* ptrLigne, int* ptrColonne)
+{
+
+}
+
+# 183
+void jouePendu(char *mot)
+{
+char trouve[15];
+for(int i = 0; i < 15; i++)
+{
+trouve[i] = 0;
+}
+}
+
+# 202
+void MenuAccueil(void)
+{
+lcd_putMessage("1- Bonhomme pendu\n2- Charivari\n");
+}

@@ -1,18 +1,20 @@
 Version 3.2 HI-TECH Software Intermediate Code
 [p mainexit ]
-"34 main.c
+"37 main.c
 [v _initialisation `(v ~T0 @X0 0 ef ]
-"38
-[v _testMatrice `(v ~T0 @X0 0 ef ]
+"27 Lcd4Lignes.h
+[v _lcd_init `(v ~T0 @X0 0 ef ]
+"51
+[v _lcd_putMessage `(v ~T0 @X0 0 ef1`*Cuc ]
 "8 C:\Program Files\Microchip\xc8\v2.41\pic\include\builtins.h
 [v ___nop `(v ~T0 @X0 0 ef ]
 [p i ___nop ]
-"2254 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f45k20.h
+"2032 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f45k20.h
+[v _TRISA `Vuc ~T0 @X0 0 e@3986 ]
+"2254
 [v _TRISB `Vuc ~T0 @X0 0 e@3987 ]
-"2476
-[v _TRISC `Vuc ~T0 @X0 0 e@3988 ]
-"508
-[v _ANSELH `Vuc ~T0 @X0 0 e@3967 ]
+"446
+[v _ANSEL `Vuc ~T0 @X0 0 e@3966 ]
 "788
 [v _PORTB `Vuc ~T0 @X0 0 e@3969 ]
 "996
@@ -2999,95 +3001,141 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;xc8\pic\include\pic18.h: 192: unsigned char __t1rd16on(void);
 [; ;xc8\pic\include\pic18.h: 193: unsigned char __t3rd16on(void);
 [; ;stdbool.h: 15: typedef unsigned char bool;
+[; ;stdbool.h: 15: typedef unsigned char bool;
+[; ;Lcd4Lignes.h: 27: void lcd_init(void);
+[; ;Lcd4Lignes.h: 34: void lcd_gotoXY(unsigned char x, unsigned char y);
+[; ;Lcd4Lignes.h: 39: void lcd_curseurHome(void);
+[; ;Lcd4Lignes.h: 45: void lcd_ecritChar(unsigned char car);
+[; ;Lcd4Lignes.h: 51: void lcd_putMessage(const unsigned char *chaine);
+[; ;Lcd4Lignes.h: 56: void lcd_effaceAffichage(void);
+[; ;Lcd4Lignes.h: 62: void lcd_effaceLigne(unsigned char y);
+[; ;Lcd4Lignes.h: 68: void lcd_effaceChar(unsigned char nbr);
+[; ;Lcd4Lignes.h: 73: void lcd_cacheCurseur(void);
+[; ;Lcd4Lignes.h: 78: void lcd_montreCurseur(void);
 [; ;serie.h: 11: void init_serie(void);
 [; ;serie.h: 12: void putch(char car);
 [; ;serie.h: 13: char getch(void);
 [; ;serie.h: 14: char getche(void);
 [; ;serie.h: 15: __bit kbhit(void);
-[; ;main.c: 34: void initialisation(void);
-[; ;main.c: 36: void setDel(int ligne, int colonne);
-[; ;main.c: 38: void testMatrice(void);
+[; ;main.c: 37: void initialisation(void);
+[; ;main.c: 45: void jouePendu(char* mot);
+[; ;main.c: 46: void MenuAccueil(void);
 [v $root$_main `(v ~T0 @X0 0 e ]
-[v F2580 `(v ~T0 @X0 1 tf ]
-"43 main.c
-[v _main `AF2580 ~T0 @X0 1 e ]
-"44
+[v F2600 `(v ~T0 @X0 1 tf ]
+"50 main.c
+[v _main `AF2600 ~T0 @X0 1 e ]
+"51
 {
-[; ;main.c: 43: void main(void)
-[; ;main.c: 44: {
+[; ;main.c: 50: void main(void)
+[; ;main.c: 51: {
 [e :U _main ]
 [f ]
-[; ;main.c: 45: initialisation();
-"45
+[; ;main.c: 52: initialisation();
+"52
 [e ( _initialisation ..  ]
-[; ;main.c: 46: testMatrice();
-"46
-[e ( _testMatrice ..  ]
-[; ;main.c: 59: __nop();
-"59
+[; ;main.c: 53: lcd_init();
+"53
+[e ( _lcd_init ..  ]
+[; ;main.c: 54: lcd_putMessage("1- Bonhomme pendu   2- Charivari");
+"54
+[e ( _lcd_putMessage (1 :s 1C ]
+"56
+[v _trouve `uc ~T0 @X0 -> 15 `i a ]
+[v F2603 `uc ~T0 @X0 -> 15 `i t ]
+[v F2604 `F2603 ~T0 @X0 -> 3 `i s ]
+[i F2604
+:U ..
+:U ..
+-> 49 `c
+-> 101 `c
+-> 114 `c
+-> 77 `c
+-> 111 `c
+-> 116 `c
+-> 0 `c
+..
+:U ..
+-> 50 `c
+-> 101 `c
+-> 77 `c
+-> 111 `c
+-> 116 `c
+-> 0 `c
+..
+:U ..
+-> 51 `c
+-> 101 `c
+-> 77 `c
+-> 111 `c
+-> 116 `c
+-> 0 `c
+..
+..
+]
+"57
+[v _messages `F2603 ~T0 @X0 -> 3 `i a ]
+[; ;main.c: 56: char trouve[15];
+[; ;main.c: 57: char messages[3][15] = {"1erMot","2eMot","3eMot" };
+[e = _messages F2604 ]
+[; ;main.c: 60: __nop();
+"60
 [e ( ___nop ..  ]
-[; ;main.c: 63: while(1)
-"63
-[e :U 298 ]
-[; ;main.c: 64: {
+[; ;main.c: 64: while(1)
 "64
+[e :U 298 ]
+[; ;main.c: 65: {
+"65
 {
-"87
+"89
 }
 [e :U 297 ]
-"63
+"64
 [e $U 298  ]
 [e :U 299 ]
-[; ;main.c: 87: }
-[; ;main.c: 88: }
-"88
+[; ;main.c: 89: }
+[; ;main.c: 90: }
+"90
 [e :UE 296 ]
 }
-[v F2582 `(v ~T0 @X0 1 tf ]
-"96
-[v _initialisation `AF2582 ~T0 @X0 1 e ]
-"97
+[v F2606 `(v ~T0 @X0 1 tf ]
+"98
+[v _initialisation `AF2606 ~T0 @X0 1 e ]
+"99
 {
-[; ;main.c: 96: void initialisation(void)
-[; ;main.c: 97: {
+[; ;main.c: 98: void initialisation(void)
+[; ;main.c: 99: {
 [e :U _initialisation ]
 [f ]
-[; ;main.c: 98: TRISB = 0;
-"98
+[; ;main.c: 100: TRISA = 0;
+"100
+[e = _TRISA -> -> 0 `i `uc ]
+[; ;main.c: 101: TRISB = 0;
+"101
 [e = _TRISB -> -> 0 `i `uc ]
-[; ;main.c: 99: TRISC = 0;
-"99
-[e = _TRISC -> -> 0 `i `uc ]
-[; ;main.c: 102: ANSELH = 0;
-"102
-[e = _ANSELH -> -> 0 `i `uc ]
-[; ;main.c: 105: PORTB = 0;
-"105
-[e = _PORTB -> -> 0 `i `uc ]
-[; ;main.c: 106: PORTC = 1;
-"106
-[e = _PORTC -> -> 1 `i `uc ]
-[; ;main.c: 107: }
-"107
+[; ;main.c: 104: ANSEL = 0;
+"104
+[e = _ANSEL -> -> 0 `i `uc ]
+[; ;main.c: 115: }
+"115
 [e :UE 300 ]
 }
-[v F2585 `(v ~T0 @X0 1 tf2`i`i ]
-"131
-[v _setDel `AF2585 ~T0 @X0 1 e ]
-"132
+[v F2610 `(v ~T0 @X0 1 tf2`i`i ]
+"128
+[v _setDel `AF2610 ~T0 @X0 1 e ]
+"129
 {
-[; ;main.c: 131: void setDel(int ligne, int colonne)
-[; ;main.c: 132: {
+[; ;main.c: 128: void setDel(int ligne, int colonne)
+[; ;main.c: 129: {
 [e :U _setDel ]
-"131
+"128
 [v _ligne `i ~T0 @X0 1 r1 ]
 [v _colonne `i ~T0 @X0 1 r2 ]
-"132
+"129
 [f ]
-[v F2587 `i ~T0 @X0 -> 6 `i s ]
-[i F2587
+[v F2612 `i ~T0 @X0 -> 6 `i s ]
+[i F2612
 :U ..
-"135
+"131
 -> 0 `i
 -> 2 `i
 -> 4 `i
@@ -3097,12 +3145,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 ..
 ]
 [v _tableauLi `i ~T0 @X0 -> 6 `i a ]
-[; ;main.c: 135: int tableauLi[6] = {0, 0b10, 0b100, 0b1000, 0b10000, 0b100000};
-[e = _tableauLi F2587 ]
-[v F2589 `i ~T0 @X0 -> 6 `i s ]
-[i F2589
+[; ;main.c: 131: int tableauLi[6] = {0, 0b10, 0b100, 0b1000, 0b10000, 0b100000};
+[e = _tableauLi F2612 ]
+[v F2614 `i ~T0 @X0 -> 6 `i s ]
+[i F2614
 :U ..
-"136
+"132
 -> 0 `i
 -> 252 `i
 -> 250 `i
@@ -3112,93 +3160,155 @@ Version 3.2 HI-TECH Software Intermediate Code
 ..
 ]
 [v _tableauCo `i ~T0 @X0 -> 6 `i a ]
-[; ;main.c: 136: int tableauCo[6] = {0,0b11111100, 0b11111010, 0b11110110, 0b11101110, 0b11011110};
-[e = _tableauCo F2589 ]
-[; ;main.c: 140: PORTB = tableauLi[ligne];
-"140
+[; ;main.c: 132: int tableauCo[6] = {0,0b11111100, 0b11111010, 0b11110110, 0b11101110, 0b11011110};
+[e = _tableauCo F2614 ]
+[; ;main.c: 136: PORTB = tableauLi[ligne];
+"136
 [e = _PORTB -> *U + &U _tableauLi * -> -> _ligne `ui `ux -> -> # *U &U _tableauLi `ui `ux `uc ]
-[; ;main.c: 141: PORTC = tableauCo[colonne];
-"141
+[; ;main.c: 137: PORTC = tableauCo[colonne];
+"137
 [e = _PORTC -> *U + &U _tableauCo * -> -> _colonne `ui `ux -> -> # *U &U _tableauCo `ui `ux `uc ]
-[; ;main.c: 143: }
-"143
+[; ;main.c: 139: }
+"139
 [e :UE 301 ]
 }
-[v F2591 `(v ~T0 @X0 1 tf ]
-"152
-[v _testMatrice `AF2591 ~T0 @X0 1 e ]
-"153
+[v F2617 `(v ~T0 @X0 1 tf ]
+"148
+[v _testMatrice `AF2617 ~T0 @X0 1 e ]
+"149
 {
-[; ;main.c: 152: void testMatrice(void)
-[; ;main.c: 153: {
+[; ;main.c: 148: void testMatrice(void)
+[; ;main.c: 149: {
 [e :U _testMatrice ]
 [f ]
-[; ;main.c: 154: for (int i = 1; i < 6; i++)
-"154
+[; ;main.c: 150: for (int i = 1; i < 6; i++)
+"150
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 1 `i ]
 [e $ < _i -> 6 `i 303  ]
 [e $U 304  ]
-"155
+"151
 [e :U 303 ]
-[; ;main.c: 155: {
+[; ;main.c: 151: {
 {
-[; ;main.c: 156: _delay((unsigned long)((300)*(1000000/4000.0)));
-"156
+[; ;main.c: 152: _delay((unsigned long)((300)*(1000000/4000.0)));
+"152
 [e ( __delay (1 -> * -> -> 300 `i `d / -> -> 1000000 `l `d .4000.0 `ul ]
-[; ;main.c: 157: for (int j = 1; j < 6; j++)
-"157
+[; ;main.c: 153: for (int j = 1; j < 6; j++)
+"153
 {
 [v _j `i ~T0 @X0 1 a ]
 [e = _j -> 1 `i ]
 [e $ < _j -> 6 `i 306  ]
 [e $U 307  ]
-"158
+"154
 [e :U 306 ]
-[; ;main.c: 158: {
+[; ;main.c: 154: {
 {
-[; ;main.c: 159: setDel(i,j);
-"159
+[; ;main.c: 155: setDel(i,j);
+"155
 [e ( _setDel (2 , _i _j ]
-[; ;main.c: 160: _delay((unsigned long)((300)*(1000000/4000.0)));
-"160
+[; ;main.c: 156: _delay((unsigned long)((300)*(1000000/4000.0)));
+"156
 [e ( __delay (1 -> * -> -> 300 `i `d / -> -> 1000000 `l `d .4000.0 `ul ]
-[; ;main.c: 161: if(i == 6 & j == 6)
-"161
-[e $ ! & == _i -> 6 `i == _j -> 6 `i 309  ]
-[; ;main.c: 162: {
-"162
-{
-[; ;main.c: 163: PORTB = 0b00000000;
-"163
-[e = _PORTB -> -> 0 `i `uc ]
-[; ;main.c: 164: PORTC = 0b11111110;
-"164
-[e = _PORTC -> -> 254 `i `uc ]
-"165
+"158
 }
-[e :U 309 ]
-"166
-}
-"157
+"153
 [e ++ _j -> 1 `i ]
 [e $ < _j -> 6 `i 306  ]
 [e :U 307 ]
-"166
+"158
 }
-"167
+"159
 }
-"154
+"150
 [e ++ _i -> 1 `i ]
 [e $ < _i -> 6 `i 303  ]
 [e :U 304 ]
-"167
+"159
 }
-[; ;main.c: 165: }
-[; ;main.c: 166: }
-[; ;main.c: 167: }
-[; ;main.c: 168: }
-"168
+[; ;main.c: 158: }
+[; ;main.c: 159: }
+[; ;main.c: 160: }
+"160
 [e :UE 302 ]
 }
+[v F2626 `(uc ~T0 @X0 1 tf3`i`*i`*i ]
+"170
+[v _deplace `AF2626 ~T0 @X0 1 e ]
+"171
+{
+[; ;main.c: 170: bool deplace(int sens, int* ptrLigne, int* ptrColonne)
+[; ;main.c: 171: {
+[e :U _deplace ]
+"170
+[v _sens `i ~T0 @X0 1 r1 ]
+[v _ptrLigne `*i ~T0 @X0 1 r2 ]
+[v _ptrColonne `*i ~T0 @X0 1 r3 ]
+"171
+[f ]
+[; ;main.c: 173: }
+"173
+[e :UE 309 ]
+}
+[v F2628 `(v ~T0 @X0 1 tf1`*uc ]
+"183
+[v _jouePendu `AF2628 ~T0 @X0 1 e ]
+"184
+{
+[; ;main.c: 183: void jouePendu(char *mot)
+[; ;main.c: 184: {
+[e :U _jouePendu ]
+"183
+[v _mot `*uc ~T0 @X0 1 r1 ]
+"184
+[f ]
+"185
+[v _trouve `uc ~T0 @X0 -> 15 `i a ]
+[; ;main.c: 185: char trouve[15];
+[; ;main.c: 186: for(int i = 0; i < 15; i++)
+"186
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 15 `i 311  ]
+[e $U 312  ]
+"187
+[e :U 311 ]
+[; ;main.c: 187: {
+{
+[; ;main.c: 188: trouve[i] = 0;
+"188
+[e = *U + &U _trouve * -> -> _i `ui `ux -> -> # *U &U _trouve `ui `ux -> -> 0 `i `uc ]
+"189
+}
+"186
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 15 `i 311  ]
+[e :U 312 ]
+"189
+}
+[; ;main.c: 189: }
+[; ;main.c: 190: }
+"190
+[e :UE 310 ]
+}
+[v F2632 `(v ~T0 @X0 1 tf ]
+"202
+[v _MenuAccueil `AF2632 ~T0 @X0 1 e ]
+"203
+{
+[; ;main.c: 202: void MenuAccueil(void)
+[; ;main.c: 203: {
+[e :U _MenuAccueil ]
+[f ]
+[; ;main.c: 204: lcd_putMessage("1- Bonhomme pendu\n2- Charivari\n");
+"204
+[e ( _lcd_putMessage (1 :s 2C ]
+[; ;main.c: 205: }
+"205
+[e :UE 314 ]
+}
+[a 1C 49 45 32 66 111 110 104 111 109 109 101 32 112 101 110 100 117 32 32 32 50 45 32 67 104 97 114 105 118 97 114 105 0 ]
+[a 2C 49 45 32 66 111 110 104 111 109 109 101 32 112 101 110 100 117 10 50 45 32 67 104 97 114 105 118 97 114 105 10 0 ]
