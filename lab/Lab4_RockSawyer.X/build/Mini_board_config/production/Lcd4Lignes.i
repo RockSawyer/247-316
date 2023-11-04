@@ -1,5 +1,5 @@
 
-# 1 "main.c"
+# 1 "Lcd4Lignes.c"
 
 # 18 "C:\Program Files\Microchip\xc8\v2.41\pic\include\xc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -4829,9 +4829,6 @@ unsigned char __t3rd16on(void);
 # 15 "C:\Program Files\Microchip\xc8\v2.41\pic\include\c90\stdbool.h"
 typedef unsigned char bool;
 
-# 15
-typedef unsigned char bool;
-
 # 27 "Lcd4Lignes.h"
 void lcd_init(void);
 
@@ -4862,136 +4859,276 @@ void lcd_cacheCurseur(void);
 # 78
 void lcd_montreCurseur(void);
 
-# 11 "serie.h"
-void init_serie(void);
-void putch(char car);
-char getch(void);
-char getche(void);
-__bit kbhit(void);
-
-# 4 "C:\Program Files\Microchip\xc8\v2.41\pic\include\c90\__size_t.h"
-typedef unsigned size_t;
-
-# 14 "C:\Program Files\Microchip\xc8\v2.41\pic\include\c90\string.h"
-extern void * memcpy(void *, const void *, size_t);
-extern void * memmove(void *, const void *, size_t);
-extern void * memset(void *, int, size_t);
-
-# 36
-extern char * strcat(char *, const char *);
-extern char * strcpy(char *, const char *);
-extern char * strncat(char *, const char *, size_t);
-extern char * strncpy(char *, const char *, size_t);
-extern char * strdup(const char *);
-extern char * strtok(char *, const char *);
-
-
-extern int memcmp(const void *, const void *, size_t);
-extern int strcmp(const char *, const char *);
-extern int stricmp(const char *, const char *);
-extern int strncmp(const char *, const char *, size_t);
-extern int strnicmp(const char *, const char *, size_t);
-extern void * memchr(const void *, int, size_t);
-extern size_t strcspn(const char *, const char *);
-extern char * strpbrk(const char *, const char *);
-extern size_t strspn(const char *, const char *);
-extern char * strstr(const char *, const char *);
-extern char * stristr(const char *, const char *);
-extern char * strerror(int);
-extern size_t strlen(const char *);
-extern char * strchr(const char *, int);
-extern char * strichr(const char *, int);
-extern char * strrchr(const char *, int);
-extern char * strrichr(const char *, int);
-
-# 24 "main.c"
-void initialisation(void);
-
-void jouePendu(char* mot);
-
-
-
-
-void main(void)
+# 66 "Lcd4Lignes.c"
+char matCGRAM[8][8] =
 {
-char messages[3][15] = {"nimportekoi","2eMot","3eMot"};
-initialisation();
-lcd_init();
-init_serie();
+{8,4,4,0x0A,0x11,0x1F,0x11,0},
+{2,4,0x0E,0x11,0x1F,0x10,0x0E,0},
+{2,4,0x1F,0x10,0x1E,0x10,0x1F,0},
+{8,4,0x0E,0x11,0x1F,0x10,0x0E,0},
+{8,4,0x1F,0x10,0x1E,0x10,0x1F,0},
+{4,0x0A,0x0E,0x11,0x1F,0x10,0x0E,0},
+{8,4,0x0E,01,0x0F,0x11,0x0F,0},
+{4,0x0A,0x0E,1,0x0F,0x11,0x0F,0},
+};
 
 
-jouePendu(messages[0]);
+
+static unsigned char lcd_busy(void);
+static unsigned char lcd_wrCom(unsigned char cCommande);
+static unsigned char lcd_wrData(unsigned char nCaractere);
+static unsigned char lcd_lireDonnees(void);
+static void lcd_ecrireDonnees(unsigned char cDonnee);
+static void lcd_resetSequence(void);
+static void lcd_initCGRam(void);
+static void lcd_strobeEnableBit(void);
+
+# 93
+static unsigned char lcd_lireDonnees(void)
+{
+
+return (PORTD & 0x0f);
 
 }
 
-# 49
-void initialisation(void)
+# 107
+static void lcd_ecrireDonnees(unsigned char donnee)
 {
-TRISA = 0;
-TRISB = 0;
 
+PORTD = (donnee & 0x0F) | (PORTD & 0xF0);
 
-ANSEL = 0;
-
+# 115
 }
 
-# 80
-void jouePendu(char *mot)
+# 124
+static unsigned char lcd_busy(void)
 {
-bool toutTrouver = 1;
-char Lettre = 0;
-bool trouve[15];
-int longMess = strlen(mot);
+unsigned char adresse;
 
-for(int i = 0; i < longMess; i++)
-{
-trouve[i] = 0;
-lcd_ecritChar('_');
-}
+PORTAbits.RA0 = 0;
+PORTAbits.RA1 = 1;
+
 do
 {
-if(kbhit())
-{
-Lettre = getch();
-for(int i = 0; i < longMess; i++)
-{
-if(Lettre == mot[i])
-{
-trouve[i] = 1;
-
-
+PORTAbits.RA2 = 1;
+__nop();
+adresse = lcd_lireDonnees() << 4;
+PORTAbits.RA2 = 0;
+_delay((unsigned long)((2)*(1000000/4000000.0)));
+PORTAbits.RA2 = 1;
+__nop();
+adresse |= lcd_lireDonnees();
+PORTAbits.RA2 = 0;
+_delay((unsigned long)((2)*(1000000/4000000.0)));
 }
-}
-for(int i = 0; i < longMess; i++)
-{
-if(trouve[i] == 1)
-{
+while(adresse&0x80);
 
-lcd_gotoXY(i+1,1);
-lcd_ecritChar(mot[i]);
-
-}
+PORTAbits.RA1 = 0;
+return(adresse&0x7f);
 }
 
-for(int i = 0; i < longMess; i++)
+# 156
+static unsigned char lcd_wrCom(unsigned char commande)
 {
-if(trouve[i] == 1)
+lcd_busy();
+
+TRISD = 0b00000000;
+_delay((unsigned long)((2)*(1000000/4000000.0)));
+
+PORTAbits.RA0 = 0;
+PORTAbits.RA1 = 0;
+
+lcd_ecrireDonnees(commande >> 4);
+lcd_strobeEnableBit();
+_delay((unsigned long)((2)*(1000000/4000000.0)));
+
+lcd_ecrireDonnees(commande);
+lcd_strobeEnableBit();
+_delay((unsigned long)((40)*(1000000/4000000.0)));
+
+if ((commande == 0x01) || commande == 0x02)
+_delay((unsigned long)((2)*(1000000/4000.0)));
+
+TRISD = 0b00001111;
+_delay((unsigned long)((2)*(1000000/4000000.0)));
+return(lcd_busy());
+}
+
+# 188
+static unsigned char lcd_wrData(unsigned char caractere)
 {
-toutTrouver = 1;
+lcd_busy();
+TRISD = 0b00000000;
+_delay((unsigned long)((2)*(1000000/4000000.0)));
+
+PORTAbits.RA0 = 1;
+PORTAbits.RA1 = 0;
+
+lcd_ecrireDonnees(caractere >> 4);
+lcd_strobeEnableBit();
+_delay((unsigned long)((2)*(1000000/4000000.0)));
+
+lcd_ecrireDonnees(caractere);
+lcd_strobeEnableBit();
+_delay((unsigned long)((2)*(1000000/4000000.0)));
+
+TRISD = 0b00001111;
+_delay((unsigned long)((2)*(1000000/4000000.0)));
+return(lcd_busy());
+}
+
+# 221
+static void lcd_resetSequence(void)
+{
+
+
+
+TRISD = 0b00000000;
+
+_delay((unsigned long)((40)*(1000000/4000.0)));
+PORTAbits.RA0 = 0;
+PORTAbits.RA1 = 0;
+
+lcd_ecrireDonnees(0x03);
+lcd_strobeEnableBit();
+_delay((unsigned long)((40)*(1000000/4000000.0)));
+
+
+lcd_ecrireDonnees(0x03);
+lcd_strobeEnableBit();
+_delay((unsigned long)((40)*(1000000/4000000.0)));
+
+lcd_ecrireDonnees(0x03);
+lcd_strobeEnableBit();
+_delay((unsigned long)((40)*(1000000/4000000.0)));
+
+lcd_ecrireDonnees(0x02);
+lcd_strobeEnableBit();
+_delay((unsigned long)((40)*(1000000/4000000.0)));
+
+TRISD = 0b00001111;
+}
+
+# 258
+void lcd_init(void)
+{
+
+lcd_resetSequence();
+lcd_wrCom(0x28);
+lcd_wrCom(0x0F);
+lcd_wrCom(0x01);
+lcd_wrCom(0x06);
+lcd_wrCom(0x80);
+lcd_initCGRam();
+}
+
+# 276
+void lcd_effaceAffichage(void)
+{
+lcd_wrCom(0x01);
+lcd_wrCom(0x80);
+}
+
+# 288
+void lcd_curseurHome(void)
+{
+lcd_wrCom(0x02);
+}
+
+# 300
+void lcd_effaceChar(unsigned char nbr)
+{
+char i;
+for(i=0;i<nbr;i++)
+lcd_wrData(' ');
+}
+
+# 314
+void lcd_gotoXY(unsigned char x, unsigned char y)
+{
+switch(y)
+{
+case 1:
+lcd_wrCom((x-1+0x80)|0x80);
+break;
+case 2:
+lcd_wrCom((x-1+0xC0)|0x80);
+break;
+case 3:
+lcd_wrCom((x-1+0x94)|0x80);
+break;
+case 4:
+lcd_wrCom((x-1+0xD4)|0x80);
 break;
 }
-else
+}
+
+# 339
+void lcd_effaceLigne(unsigned char y)
 {
-toutTrouver = 0;
+lcd_gotoXY(1,y);
+lcd_effaceChar(20);
+lcd_gotoXY(1,y);
 }
 
+# 359
+void lcd_ecritChar(unsigned char car)
+{
+unsigned char posRam;
+
+posRam = lcd_wrData(car);
+switch(posRam)
+{
+case 0x94:
+lcd_wrCom(0xC0|0x80);
+break;
+case 0xD4:
+lcd_wrCom(0x94|0x80);
+break;
+case 0xC0:
+lcd_wrCom(0xD4|0x80);
+break;
+}
 }
 
+# 387
+void lcd_putMessage(const unsigned char *chaine)
+{
+unsigned char j;
+
+for(j = 0; chaine[j] != 0; j++)
+lcd_ecritChar(chaine[j]);
 }
+
+# 401
+void lcd_cacheCurseur(void)
+{
+lcd_wrCom(0x0C);
 }
 
-while(toutTrouver);
-
-
+# 412
+void lcd_montreCurseur(void)
+{
+lcd_wrCom(0x0F);
 }
 
+static void lcd_initCGRam(void)
+{
+char i,j;
+
+lcd_wrCom(0x40);
+for(i=0;i<8;i++)
+{
+for(j=0;j<8;j++)
+lcd_wrData(matCGRAM[i][j]);
+}
+lcd_curseurHome();
+}
+
+
+static void lcd_strobeEnableBit(void)
+{
+PORTAbits.RA2 = 1;
+__nop();
+PORTAbits.RA2 = 0;
+}

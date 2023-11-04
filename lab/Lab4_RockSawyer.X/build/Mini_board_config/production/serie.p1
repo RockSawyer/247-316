@@ -1,29 +1,84 @@
 Version 3.2 HI-TECH Software Intermediate Code
-[p mainexit ]
-"24 main.c
-[v _initialisation `(v ~T0 @X0 0 ef ]
-"27 Lcd4Lignes.h
-[v _lcd_init `(v ~T0 @X0 0 ef ]
-"11 serie.h
-[v _init_serie `(v ~T0 @X0 0 ef ]
-"26 main.c
-[v _jouePendu `(v ~T0 @X0 0 ef1`*uc ]
-"2032 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f45k20.h
-[v _TRISA `Vuc ~T0 @X0 0 e@3986 ]
-"2254
-[v _TRISB `Vuc ~T0 @X0 0 e@3987 ]
+"2487 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f45k20.h
+[s S91 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S91 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 TRISC6 TRISC7 ]
+"2497
+[s S92 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S92 . RC0 RC1 RC2 RC3 RC4 RC5 RC6 RC7 ]
+"2486
+[u S90 `S91 1 `S92 1 ]
+[n S90 . . . ]
+"2508
+[v _TRISCbits `VS90 ~T0 @X0 0 e@3988 ]
+"4257
+[v _SPBRGH `Vuc ~T0 @X0 0 e@4016 ]
+"4245
+[v _SPBRG `Vuc ~T0 @X0 0 e@4015 ]
+"4666
+[s S180 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S180 . ABDEN WUE . BRG16 CKTXP DTRXP RCIDL ABDOVF ]
+"4676
+[s S181 :4 `uc 1 :1 `uc 1 ]
+[n S181 . . SCKP ]
+"4680
+[s S182 :5 `uc 1 :1 `uc 1 ]
+[n S182 . . RXCKP ]
+"4684
+[s S183 :1 `uc 1 :1 `uc 1 ]
+[n S183 . . W4E ]
+"4665
+[u S179 `S180 1 `S181 1 `S182 1 `S183 1 ]
+[n S179 . . . . . ]
+"4689
+[v _BAUDCONbits `VS179 ~T0 @X0 0 e@4024 ]
+"3976
+[s S152 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S152 . TX9D TRMT BRGH SENDB SYNC TXEN TX9 CSRC ]
+"3986
+[s S153 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S153 . TX9D1 TRMT1 BRGH1 SENDB1 SYNC1 TXEN1 TX91 CSRC1 ]
+"3996
+[s S154 :6 `uc 1 :1 `uc 1 ]
+[n S154 . . TX8_9 ]
+"4000
+[s S155 :1 `uc 1 ]
+[n S155 . TXD8 ]
+"3975
+[u S151 `S152 1 `S153 1 `S154 1 `S155 1 ]
+[n S151 . . . . . ]
+"4004
+[v _TXSTAbits `VS151 ~T0 @X0 0 e@4012 ]
+"3766
+[s S138 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S138 . RX9D OERR FERR ADDEN CREN SREN RX9 SPEN ]
+"3776
+[s S139 :3 `uc 1 :1 `uc 1 ]
+[n S139 . . ADEN ]
+"3780
+[s S140 :5 `uc 1 :1 `uc 1 ]
+[n S140 . . SRENA ]
+"3784
+[s S141 :6 `uc 1 :1 `uc 1 ]
+[n S141 . . RC8_9 ]
+"3788
+[s S142 :6 `uc 1 :1 `uc 1 ]
+[n S142 . . RC9 ]
+"3792
+[s S143 :1 `uc 1 ]
+[n S143 . RCD8 ]
+"3765
+[u S137 `S138 1 `S139 1 `S140 1 `S141 1 `S142 1 `S143 1 ]
+[n S137 . . . . . . . ]
+"3796
+[v _RCSTAbits `VS137 ~T0 @X0 0 e@4011 ]
 "446
 [v _ANSEL `Vuc ~T0 @X0 0 e@3966 ]
-"56 C:\Program Files\Microchip\xc8\v2.41\pic\include\c90\string.h
-[v _strlen `(ui ~T0 @X0 0 ef1`*Cuc ]
-"45 Lcd4Lignes.h
-[v _lcd_ecritChar `(v ~T0 @X0 0 ef1`uc ]
-"15 serie.h
-[v _kbhit `(b ~T0 @X0 0 ef ]
-"13
-[v _getch `(uc ~T0 @X0 0 ef ]
-"34 Lcd4Lignes.h
-[v _lcd_gotoXY `(v ~T0 @X0 0 ef2`uc`uc ]
+"4221
+[v _TXREG `Vuc ~T0 @X0 0 e@4013 ]
+"8634
+[v _RCIF `Vb ~T0 @X0 0 e@31989 ]
+"4233
+[v _RCREG `Vuc ~T0 @X0 0 e@4014 ]
 [; ;xc.h: 18: extern const char __xc8_OPTIM_SPEED;
 [; ;xc.h: 20: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -3001,338 +3056,170 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;xc8\pic\include\pic18.h: 158: __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer supported. Please use the MPLAB X MCC."))) void Write_b_eep(unsigned int badd, unsigned char bdat);
 [; ;xc8\pic\include\pic18.h: 192: unsigned char __t1rd16on(void);
 [; ;xc8\pic\include\pic18.h: 193: unsigned char __t3rd16on(void);
-[; ;stdbool.h: 15: typedef unsigned char bool;
-[; ;stdbool.h: 15: typedef unsigned char bool;
-[; ;Lcd4Lignes.h: 27: void lcd_init(void);
-[; ;Lcd4Lignes.h: 34: void lcd_gotoXY(unsigned char x, unsigned char y);
-[; ;Lcd4Lignes.h: 39: void lcd_curseurHome(void);
-[; ;Lcd4Lignes.h: 45: void lcd_ecritChar(unsigned char car);
-[; ;Lcd4Lignes.h: 51: void lcd_putMessage(const unsigned char *chaine);
-[; ;Lcd4Lignes.h: 56: void lcd_effaceAffichage(void);
-[; ;Lcd4Lignes.h: 62: void lcd_effaceLigne(unsigned char y);
-[; ;Lcd4Lignes.h: 68: void lcd_effaceChar(unsigned char nbr);
-[; ;Lcd4Lignes.h: 73: void lcd_cacheCurseur(void);
-[; ;Lcd4Lignes.h: 78: void lcd_montreCurseur(void);
 [; ;serie.h: 11: void init_serie(void);
 [; ;serie.h: 12: void putch(char car);
 [; ;serie.h: 13: char getch(void);
 [; ;serie.h: 14: char getche(void);
 [; ;serie.h: 15: __bit kbhit(void);
-[; ;__size_t.h: 4: typedef unsigned size_t;
-[; ;string.h: 14: extern void * memcpy(void *, const void *, size_t);
-[; ;string.h: 15: extern void * memmove(void *, const void *, size_t);
-[; ;string.h: 16: extern void * memset(void *, int, size_t);
-[; ;string.h: 36: extern char * strcat(char *, const char *);
-[; ;string.h: 37: extern char * strcpy(char *, const char *);
-[; ;string.h: 38: extern char * strncat(char *, const char *, size_t);
-[; ;string.h: 39: extern char * strncpy(char *, const char *, size_t);
-[; ;string.h: 40: extern char * strdup(const char *);
-[; ;string.h: 41: extern char * strtok(char *, const char *);
-[; ;string.h: 44: extern int memcmp(const void *, const void *, size_t);
-[; ;string.h: 45: extern int strcmp(const char *, const char *);
-[; ;string.h: 46: extern int stricmp(const char *, const char *);
-[; ;string.h: 47: extern int strncmp(const char *, const char *, size_t);
-[; ;string.h: 48: extern int strnicmp(const char *, const char *, size_t);
-[; ;string.h: 49: extern void * memchr(const void *, int, size_t);
-[; ;string.h: 50: extern size_t strcspn(const char *, const char *);
-[; ;string.h: 51: extern char * strpbrk(const char *, const char *);
-[; ;string.h: 52: extern size_t strspn(const char *, const char *);
-[; ;string.h: 53: extern char * strstr(const char *, const char *);
-[; ;string.h: 54: extern char * stristr(const char *, const char *);
-[; ;string.h: 55: extern char * strerror(int);
-[; ;string.h: 56: extern size_t strlen(const char *);
-[; ;string.h: 57: extern char * strchr(const char *, int);
-[; ;string.h: 58: extern char * strichr(const char *, int);
-[; ;string.h: 59: extern char * strrchr(const char *, int);
-[; ;string.h: 60: extern char * strrichr(const char *, int);
-[; ;main.c: 24: void initialisation(void);
-[; ;main.c: 26: void jouePendu(char* mot);
-[v $root$_main `(v ~T0 @X0 0 e ]
-[v F2683 `(v ~T0 @X0 1 tf ]
-"31 main.c
-[v _main `AF2683 ~T0 @X0 1 e ]
-"32
+[v F2571 `(v ~T0 @X0 1 tf ]
+"24 serie.c
+[v _init_serie `AF2571 ~T0 @X0 1 e ]
+"25
 {
-[; ;main.c: 31: void main(void)
-[; ;main.c: 32: {
-[e :U _main ]
+[; ;serie.c: 24: void init_serie(void)
+[; ;serie.c: 25: {
+[e :U _init_serie ]
 [f ]
-[v F2685 `uc ~T0 @X0 -> 15 `i t ]
-[v F2686 `F2685 ~T0 @X0 -> 3 `i s ]
-[i F2686
-:U ..
-:U ..
--> 110 `c
--> 105 `c
--> 109 `c
--> 112 `c
--> 111 `c
--> 114 `c
--> 116 `c
--> 101 `c
--> 107 `c
--> 111 `c
--> 105 `c
--> 0 `c
-..
-:U ..
--> 50 `c
--> 101 `c
--> 77 `c
--> 111 `c
--> 116 `c
--> 0 `c
-..
-:U ..
--> 51 `c
--> 101 `c
--> 77 `c
--> 111 `c
--> 116 `c
--> 0 `c
-..
-..
-]
+[; ;serie.c: 27: TRISCbits.TRISC7=1;
+"27
+[e = . . _TRISCbits 0 7 -> -> 1 `i `uc ]
+[; ;serie.c: 28: TRISCbits.TRISC6=1;
+"28
+[e = . . _TRISCbits 0 6 -> -> 1 `i `uc ]
+[; ;serie.c: 32: SPBRGH=0x00;
+"32
+[e = _SPBRGH -> -> 0 `i `uc ]
+[; ;serie.c: 33: SPBRG=25;
 "33
-[v _messages `F2685 ~T0 @X0 -> 3 `i a ]
-[; ;main.c: 33: char messages[3][15] = {"nimportekoi","2eMot","3eMot"};
-[e = _messages F2686 ]
-[; ;main.c: 34: initialisation();
+[e = _SPBRG -> -> 25 `i `uc ]
+[; ;serie.c: 34: BAUDCONbits.BRG16=1;
 "34
-[e ( _initialisation ..  ]
-[; ;main.c: 35: lcd_init();
+[e = . . _BAUDCONbits 0 3 -> -> 1 `i `uc ]
+[; ;serie.c: 35: TXSTAbits.BRGH=1;
 "35
-[e ( _lcd_init ..  ]
-[; ;main.c: 36: init_serie();
-"36
-[e ( _init_serie ..  ]
-[; ;main.c: 39: jouePendu(messages[0]);
+[e = . . _TXSTAbits 0 2 -> -> 1 `i `uc ]
+[; ;serie.c: 38: TXSTAbits.SYNC=0;
+"38
+[e = . . _TXSTAbits 0 4 -> -> 0 `i `uc ]
+[; ;serie.c: 39: TXSTAbits.TXEN=1;
 "39
-[e ( _jouePendu (1 &U *U + &U _messages * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _messages `ui -> -> 15 `i `ui `ux ]
-[; ;main.c: 41: }
+[e = . . _TXSTAbits 0 5 -> -> 1 `i `uc ]
+[; ;serie.c: 40: RCSTAbits.CREN = 1;
+"40
+[e = . . _RCSTAbits 0 4 -> -> 1 `i `uc ]
+[; ;serie.c: 41: RCSTAbits.SPEN=1;
 "41
+[e = . . _RCSTAbits 0 7 -> -> 1 `i `uc ]
+[; ;serie.c: 42: ANSEL = 0;
+"42
+[e = _ANSEL -> -> 0 `i `uc ]
+[; ;serie.c: 43: }
+"43
 [e :UE 296 ]
 }
-[v F2688 `(v ~T0 @X0 1 tf ]
-"49
-[v _initialisation `AF2688 ~T0 @X0 1 e ]
-"50
-{
-[; ;main.c: 49: void initialisation(void)
-[; ;main.c: 50: {
-[e :U _initialisation ]
-[f ]
-[; ;main.c: 51: TRISA = 0;
-"51
-[e = _TRISA -> -> 0 `i `uc ]
-[; ;main.c: 52: TRISB = 0;
+[v F2573 `(v ~T0 @X0 1 tf1`uc ]
 "52
-[e = _TRISB -> -> 0 `i `uc ]
-[; ;main.c: 55: ANSEL = 0;
+[v _putch `AF2573 ~T0 @X0 1 e ]
+"53
+{
+[; ;serie.c: 52: void putch(char car)
+[; ;serie.c: 53: {
+[e :U _putch ]
+"52
+[v _car `uc ~T0 @X0 1 r1 ]
+"53
+[f ]
+[; ;serie.c: 55: while(TXSTAbits.TRMT==0);
 "55
-[e = _ANSEL -> -> 0 `i `uc ]
-[; ;main.c: 57: }
-"57
+[e $U 298  ]
+[e :U 299 ]
+[e :U 298 ]
+[e $ == -> . . _TXSTAbits 0 1 `i -> 0 `i 299  ]
+[e :U 300 ]
+[; ;serie.c: 56: TXREG = car;
+"56
+[e = _TXREG _car ]
+[; ;serie.c: 58: }
+"58
 [e :UE 297 ]
 }
-[v F2690 `(v ~T0 @X0 1 tf1`*uc ]
-"80
-[v _jouePendu `AF2690 ~T0 @X0 1 e ]
-"81
+[v F2575 `(uc ~T0 @X0 1 tf ]
+"65
+[v _getch `AF2575 ~T0 @X0 1 e ]
+"66
 {
-[; ;main.c: 80: void jouePendu(char *mot)
-[; ;main.c: 81: {
-[e :U _jouePendu ]
-"80
-[v _mot `*uc ~T0 @X0 1 r1 ]
-"81
+[; ;serie.c: 65: char getch(void)
+[; ;serie.c: 66: {
+[e :U _getch ]
 [f ]
-"82
-[v _toutTrouver `uc ~T0 @X0 1 a ]
-[; ;main.c: 82: bool toutTrouver = 1;
-[e = _toutTrouver -> -> 1 `i `uc ]
-"83
-[v _Lettre `uc ~T0 @X0 1 a ]
-[; ;main.c: 83: char Lettre = 0;
-[e = _Lettre -> -> 0 `i `uc ]
-"84
-[v _trouve `uc ~T0 @X0 -> 15 `i a ]
-"85
-[v _longMess `i ~T0 @X0 1 a ]
-[; ;main.c: 84: bool trouve[15];
-[; ;main.c: 85: int longMess = strlen(mot);
-[e = _longMess -> ( _strlen (1 -> _mot `*Cuc `i ]
-[; ;main.c: 87: for(int i = 0; i < longMess; i++)
-"87
-{
-[v _i `i ~T0 @X0 1 a ]
-[e = _i -> 0 `i ]
+"67
+[v _c `uc ~T0 @X0 1 a ]
+[; ;serie.c: 67: unsigned char c;
+[; ;serie.c: 69: while (!RCIF)
+"69
 [e $U 302  ]
-"88
-[e :U 299 ]
-[; ;main.c: 88: {
-{
-[; ;main.c: 89: trouve[i] = 0;
-"89
-[e = *U + &U _trouve * -> -> _i `ui `ux -> -> # *U &U _trouve `ui `ux -> -> 0 `i `uc ]
-[; ;main.c: 90: lcd_ecritChar('_');
-"90
-[e ( _lcd_ecritChar (1 -> -> 95 `ui `uc ]
-"91
-}
-"87
-[e ++ _i -> 1 `i ]
+[e :U 303 ]
+[; ;serie.c: 70: ;
+"70
 [e :U 302 ]
-[e $ < _i _longMess 299  ]
-[e :U 300 ]
-"91
+"69
+[e $ ! _RCIF 303  ]
+[e :U 304 ]
+[; ;serie.c: 71: c = RCREG;
+"71
+[e = _c _RCREG ]
+[; ;serie.c: 73: return c;
+"73
+[e ) _c ]
+[e $UE 301  ]
+[; ;serie.c: 74: }
+"74
+[e :UE 301 ]
 }
-[; ;main.c: 91: }
-[; ;main.c: 92: do
-"92
-[e :U 305 ]
-[; ;main.c: 93: {
-"93
+[v F2578 `(uc ~T0 @X0 1 tf ]
+"81
+[v _getche `AF2578 ~T0 @X0 1 e ]
+"82
 {
-[; ;main.c: 94: if(kbhit())
-"94
-[e $ ! ( _kbhit ..  306  ]
-[; ;main.c: 95: {
-"95
-{
-[; ;main.c: 96: Lettre = getch();
-"96
-[e = _Lettre ( _getch ..  ]
-[; ;main.c: 97: for(int i = 0; i < longMess; i++)
-"97
-{
-[v _i `i ~T0 @X0 1 a ]
-[e = _i -> 0 `i ]
-[e $U 310  ]
-"98
+[; ;serie.c: 81: char getche(void)
+[; ;serie.c: 82: {
+[e :U _getche ]
+[f ]
+"83
+[v _c `uc ~T0 @X0 1 a ]
+[; ;serie.c: 83: unsigned char c;
+[; ;serie.c: 84: while (!RCIF);
+"84
+[e $U 306  ]
 [e :U 307 ]
-[; ;main.c: 98: {
-{
-[; ;main.c: 99: if(Lettre == mot[i])
+[e :U 306 ]
+[e $ ! _RCIF 307  ]
+[e :U 308 ]
+[; ;serie.c: 85: c = RCREG;
+"85
+[e = _c _RCREG ]
+[; ;serie.c: 88: while(TXSTAbits.TRMT==0);
+"88
+[e $U 309  ]
+[e :U 310 ]
+[e :U 309 ]
+[e $ == -> . . _TXSTAbits 0 1 `i -> 0 `i 310  ]
+[e :U 311 ]
+[; ;serie.c: 89: TXREG = c;
+"89
+[e = _TXREG _c ]
+[; ;serie.c: 91: return c;
+"91
+[e ) _c ]
+[e $UE 305  ]
+[; ;serie.c: 92: }
+"92
+[e :UE 305 ]
+}
+[v F2581 `(b ~T0 @X0 1 tf ]
 "99
-[e $ ! == -> _Lettre `i -> *U + _mot * -> _i `x -> -> # *U _mot `i `x `i 311  ]
-[; ;main.c: 100: {
+[v _kbhit `AF2581 ~T0 @X0 1 e ]
 "100
 {
-[; ;main.c: 101: trouve[i] = 1;
+[; ;serie.c: 99: __bit kbhit(void)
+[; ;serie.c: 100: {
+[e :U _kbhit ]
+[f ]
+[; ;serie.c: 101: return RCIF;
 "101
-[e = *U + &U _trouve * -> -> _i `ui `ux -> -> # *U &U _trouve `ui `ux -> -> 1 `i `uc ]
-"104
-}
-[e :U 311 ]
-"105
-}
-"97
-[e ++ _i -> 1 `i ]
-[e :U 310 ]
-[e $ < _i _longMess 307  ]
-[e :U 308 ]
-"105
-}
-[; ;main.c: 104: }
-[; ;main.c: 105: }
-[; ;main.c: 106: for(int i = 0; i < longMess; i++)
-"106
-{
-[v _i `i ~T0 @X0 1 a ]
-[e = _i -> 0 `i ]
-[e $U 315  ]
-"107
-[e :U 312 ]
-[; ;main.c: 107: {
-{
-[; ;main.c: 108: if(trouve[i] == 1)
-"108
-[e $ ! == -> *U + &U _trouve * -> -> _i `ui `ux -> -> # *U &U _trouve `ui `ux `i -> 1 `i 316  ]
-[; ;main.c: 109: {
-"109
-{
-[; ;main.c: 111: lcd_gotoXY(i+1,1);
-"111
-[e ( _lcd_gotoXY (2 , -> + _i -> 1 `i `uc -> -> 1 `i `uc ]
-[; ;main.c: 112: lcd_ecritChar(mot[i]);
-"112
-[e ( _lcd_ecritChar (1 *U + _mot * -> _i `x -> -> # *U _mot `i `x ]
-"114
-}
-[e :U 316 ]
-"115
-}
-"106
-[e ++ _i -> 1 `i ]
-[e :U 315 ]
-[e $ < _i _longMess 312  ]
-[e :U 313 ]
-"115
-}
-[; ;main.c: 114: }
-[; ;main.c: 115: }
-[; ;main.c: 117: for(int i = 0; i < longMess; i++)
-"117
-{
-[v _i `i ~T0 @X0 1 a ]
-[e = _i -> 0 `i ]
-[e $U 320  ]
-"118
-[e :U 317 ]
-[; ;main.c: 118: {
-{
-[; ;main.c: 119: if(trouve[i] == 1)
-"119
-[e $ ! == -> *U + &U _trouve * -> -> _i `ui `ux -> -> # *U &U _trouve `ui `ux `i -> 1 `i 321  ]
-[; ;main.c: 120: {
-"120
-{
-[; ;main.c: 121: toutTrouver = 1;
-"121
-[e = _toutTrouver -> -> 1 `i `uc ]
-[; ;main.c: 122: break;
-"122
-[e $U 318  ]
-"123
-}
-[; ;main.c: 123: }
-[e $U 322  ]
-"124
-[e :U 321 ]
-[; ;main.c: 124: else
-[; ;main.c: 125: {
-"125
-{
-[; ;main.c: 126: toutTrouver = 0;
-"126
-[e = _toutTrouver -> -> 0 `i `uc ]
-"127
-}
-[e :U 322 ]
-"129
-}
-"117
-[e ++ _i -> 1 `i ]
-[e :U 320 ]
-[e $ < _i _longMess 317  ]
-[e :U 318 ]
-"129
-}
-"131
-}
-[e :U 306 ]
-"132
-}
-[; ;main.c: 127: }
-[; ;main.c: 129: }
-[; ;main.c: 131: }
-[; ;main.c: 132: }
-[; ;main.c: 134: while(toutTrouver);
-"134
-[e $ != -> _toutTrouver `i -> -> -> 0 `i `uc `i 305  ]
-[e :U 304 ]
-[; ;main.c: 137: }
-"137
-[e :UE 298 ]
+[e ) -> -> _RCIF `i `b ]
+[e $UE 312  ]
+[; ;serie.c: 102: }
+"102
+[e :UE 312 ]
 }

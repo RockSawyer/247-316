@@ -1,5 +1,5 @@
 
-# 1 "main.c"
+# 1 "serie.c"
 
 # 18 "C:\Program Files\Microchip\xc8\v2.41\pic\include\xc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -4826,42 +4826,6 @@ __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer suppo
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 
-# 15 "C:\Program Files\Microchip\xc8\v2.41\pic\include\c90\stdbool.h"
-typedef unsigned char bool;
-
-# 15
-typedef unsigned char bool;
-
-# 27 "Lcd4Lignes.h"
-void lcd_init(void);
-
-# 34
-void lcd_gotoXY(unsigned char x, unsigned char y);
-
-# 39
-void lcd_curseurHome(void);
-
-# 45
-void lcd_ecritChar(unsigned char car);
-
-# 51
-void lcd_putMessage(const unsigned char *chaine);
-
-# 56
-void lcd_effaceAffichage(void);
-
-# 62
-void lcd_effaceLigne(unsigned char y);
-
-# 68
-void lcd_effaceChar(unsigned char nbr);
-
-# 73
-void lcd_cacheCurseur(void);
-
-# 78
-void lcd_montreCurseur(void);
-
 # 11 "serie.h"
 void init_serie(void);
 void putch(char car);
@@ -4869,129 +4833,66 @@ char getch(void);
 char getche(void);
 __bit kbhit(void);
 
-# 4 "C:\Program Files\Microchip\xc8\v2.41\pic\include\c90\__size_t.h"
-typedef unsigned size_t;
-
-# 14 "C:\Program Files\Microchip\xc8\v2.41\pic\include\c90\string.h"
-extern void * memcpy(void *, const void *, size_t);
-extern void * memmove(void *, const void *, size_t);
-extern void * memset(void *, int, size_t);
-
-# 36
-extern char * strcat(char *, const char *);
-extern char * strcpy(char *, const char *);
-extern char * strncat(char *, const char *, size_t);
-extern char * strncpy(char *, const char *, size_t);
-extern char * strdup(const char *);
-extern char * strtok(char *, const char *);
-
-
-extern int memcmp(const void *, const void *, size_t);
-extern int strcmp(const char *, const char *);
-extern int stricmp(const char *, const char *);
-extern int strncmp(const char *, const char *, size_t);
-extern int strnicmp(const char *, const char *, size_t);
-extern void * memchr(const void *, int, size_t);
-extern size_t strcspn(const char *, const char *);
-extern char * strpbrk(const char *, const char *);
-extern size_t strspn(const char *, const char *);
-extern char * strstr(const char *, const char *);
-extern char * stristr(const char *, const char *);
-extern char * strerror(int);
-extern size_t strlen(const char *);
-extern char * strchr(const char *, int);
-extern char * strichr(const char *, int);
-extern char * strrchr(const char *, int);
-extern char * strrichr(const char *, int);
-
-# 24 "main.c"
-void initialisation(void);
-
-void jouePendu(char* mot);
-
-
-
-
-void main(void)
+# 24 "serie.c"
+void init_serie(void)
 {
-char messages[3][15] = {"nimportekoi","2eMot","3eMot"};
-initialisation();
-lcd_init();
-init_serie();
+
+TRISCbits.TRISC7=1;
+TRISCbits.TRISC6=1;
 
 
-jouePendu(messages[0]);
 
-}
-
-# 49
-void initialisation(void)
-{
-TRISA = 0;
-TRISB = 0;
+SPBRGH=0x00;
+SPBRG=25;
+BAUDCONbits.BRG16=1;
+TXSTAbits.BRGH=1;
 
 
+TXSTAbits.SYNC=0;
+TXSTAbits.TXEN=1;
+RCSTAbits.CREN = 1;
+RCSTAbits.SPEN=1;
 ANSEL = 0;
+}
+
+# 52
+void putch(char car)
+{
+
+while(TXSTAbits.TRMT==0);
+TXREG = car;
 
 }
 
-# 80
-void jouePendu(char *mot)
+# 65
+char getch(void)
 {
-bool toutTrouver = 1;
-char Lettre = 0;
-bool trouve[15];
-int longMess = strlen(mot);
+unsigned char c;
 
-for(int i = 0; i < longMess; i++)
-{
-trouve[i] = 0;
-lcd_ecritChar('_');
-}
-do
-{
-if(kbhit())
-{
-Lettre = getch();
-for(int i = 0; i < longMess; i++)
-{
-if(Lettre == mot[i])
-{
-trouve[i] = 1;
+while (!RCIF)
+;
+c = RCREG;
 
-
-}
-}
-for(int i = 0; i < longMess; i++)
-{
-if(trouve[i] == 1)
-{
-
-lcd_gotoXY(i+1,1);
-lcd_ecritChar(mot[i]);
-
-}
+return c;
 }
 
-for(int i = 0; i < longMess; i++)
+# 81
+char getche(void)
 {
-if(trouve[i] == 1)
+unsigned char c;
+while (!RCIF);
+c = RCREG;
+
+
+while(TXSTAbits.TRMT==0);
+TXREG = c;
+
+return c;
+}
+
+# 99
+__bit kbhit(void)
 {
-toutTrouver = 1;
-break;
-}
-else
-{
-toutTrouver = 0;
-}
-
-}
-
-}
-}
-
-while(toutTrouver);
-
-
+return RCIF;
 }
 
