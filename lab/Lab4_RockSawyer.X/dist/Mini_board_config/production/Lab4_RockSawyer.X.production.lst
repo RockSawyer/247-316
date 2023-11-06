@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.41 build 20230208172133 
-                                                                                               Wed Nov 01 16:35:19 2023
+                                                                                               Mon Nov 06 13:43:07 2023
 
 Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1 
      1                           	processor	18F45K20
@@ -86,17 +86,17 @@ Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1
     72                           	callstack 0
     73                           
     74                           ;initializer for main@F2686
-    75   007A2F  6E                 	db	110
-    76   007A30  69                 	db	105
-    77   007A31  6D                 	db	109
-    78   007A32  70                 	db	112
-    79   007A33  6F                 	db	111
-    80   007A34  72                 	db	114
-    81   007A35  74                 	db	116
+    75   007A2F  70                 	db	112
+    76   007A30  6F                 	db	111
+    77   007A31  72                 	db	114
+    78   007A32  74                 	db	116
+    79   007A33  61                 	db	97
+    80   007A34  62                 	db	98
+    81   007A35  6C                 	db	108
     82   007A36  65                 	db	101
-    83   007A37  6B                 	db	107
-    84   007A38  6F                 	db	111
-    85   007A39  69                 	db	105
+    83   007A37  00                 	db	0
+    84   007A38  00                 	db	0
+    85   007A39  00                 	db	0
     86   007A3A  00                 	db	0
     87   007A3B  00                 	db	0
     88   007A3C  00                 	db	0
@@ -430,7 +430,7 @@ Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1
    416   007A5C                     _main:
    417                           	callstack 25
    418   007A5C                     
-   419                           ;main.c: 33: char messages[3][15] = {"nimportekoi","2eMot","3eMot"};
+   419                           ;main.c: 33: char messages[3][15] = {"portable","2eMot","3eMot"};
    420   007A5C  EE20  F0B0         	lfsr	2,main@F2686
    421   007A60  EE10  F083         	lfsr	1,main@messages
    422   007A64  0E2C               	movlw	44
@@ -2632,7 +2632,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.41 build 20230208172133 
-Symbol Table                                                                                   Wed Nov 01 16:35:19 2023
+Symbol Table                                                                                   Mon Nov 06 13:43:07 2023
 
                          l31 7A88                           l34 799A                           l56 7FFE  
                          l90 79AA                           l91 79B2                           l79 7A04  

@@ -4914,7 +4914,7 @@ void jouePendu(char* mot);
 
 void main(void)
 {
-char messages[3][15] = {"nimportekoi","2eMot","3eMot"};
+char messages[3][15] = {"portable","2eMot","3eMot"};
 initialisation();
 lcd_init();
 init_serie();

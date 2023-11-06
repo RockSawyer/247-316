@@ -6,10 +6,10 @@ Linker command line:
   --edf=C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\dat\20230721151103_en.msgs \
   -cn -h+dist/Mini_board_config/debug\Lab4_RockSawyer.X.debug.sym \
   --cmf=dist/Mini_board_config/debug\Lab4_RockSawyer.X.debug.cmf -z \
-  -Q18F45K20 -oC:\Users\Rock\AppData\Local\Temp\xcAs160.\driver_tmp_3.o \
+  -Q18F45K20 -oC:\Users\Rock\AppData\Local\Temp\xcCsbig.2\driver_tmp_3.o \
   --defsym=__MPLAB_BUILD=1 --fixupoverflow=error \
   -Mdist/Mini_board_config/debug/Lab4_RockSawyer.X.debug.map \
-  --md=C:\Users\Rock\AppData\Local\Temp\xcAs160.\driver_tmp_0.dat -E1 \
+  --md=C:\Users\Rock\AppData\Local\Temp\xcCsbig.2\driver_tmp_0.dat -E1 \
   -ver=XC8 Compiler --acfsm=1493 -ACODE=00h-07DBFh -ACONST=00h-07DBFh \
   -ASMALLCONST=0600h-06FFhx119,07D00h-07DBFh -AMEDIUMCONST=0600h-07DBFh \
   -ACOMRAM=01h-05Fh -AABS1=00h-05F3h -ABIGRAM=01h-05F3h \
@@ -27,7 +27,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -pparam0=BANK0 \
-  C:\Users\Rock\AppData\Local\Temp\xcAs160.\driver_tmp_9.o \
+  C:\Users\Rock\AppData\Local\Temp\xcCsbig.2\driver_tmp_9.o \
   dist/Mini_board_config/debug\Lab4_RockSawyer.X.debug.o 
 
 Object code version is 3.11
@@ -37,7 +37,7 @@ Machine type is 18F45K20
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\Rock\AppData\Local\Temp\xcAs160.\driver_tmp_9.o
+C:\Users\Rock\AppData\Local\Temp\xcCsbig.2\driver_tmp_9.o
                 idloc                            200000   200000        8        0       5
                 config                           300000   300000        E        0       4
                 init                                  0        0        4        0       0

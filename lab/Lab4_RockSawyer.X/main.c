@@ -22,15 +22,14 @@
 
 
 void initialisation(void); //fonction qui initialise le pic
-
-void jouePendu(char* mot);
 //void MenuAccueil(void);
-
-
+void jouePendu(char* mot);
+bool joueCharivari(char* mot);
+//void afficheMelange(mot);
 
 void main(void)
 {
-    char messages[NB_MSG][LONG_MSG] = {"nimportekoi","2eMot","3eMot"};
+    char messages[NB_MSG][LONG_MSG] = {"portable","2eMot","3eMot"};
     initialisation();
     lcd_init();
     init_serie();
@@ -58,19 +57,7 @@ void initialisation(void)
 
 
     
-    
-
-
-
-
-
-
-
-
-
-
-
-/**
+    /**
  * @brief fonction qui permet de jouer au jeu le pendu
  * @param char *mot, qui est le mot à trouver
  * @param 
@@ -124,6 +111,7 @@ void jouePendu(char *mot)
                 else
                 {
                     toutTrouver = false;
+                    //int printf("fini");
                 }
                 
             }
@@ -136,6 +124,33 @@ void jouePendu(char *mot)
     
 }
 
+/**
+ * @brief 
+ * @param 
+ * @return
+ */
+
+bool joueCharivari(char* mot)
+{
+    char c = 0;
+    char msgRecu[];
+    
+    //afficheMelange(mot);
+   
+    do
+    {
+       kbhit();
+       {
+            c = getch();
+            msgRecu[i] = c;
+       }
+    }   
+    while(c == '\r' || );
+        
+     
+    
+    
+}
 
 
 
