@@ -121,14 +121,26 @@ long essaisNip(void)
  */
 void metEnOrdre(void)
 {
-    char temp = 0;
+    char temp[10];
     for(int i = 0; i < NB_USAGER; i++ )
     {
         for(int j = 0; j < 5; j++)
         {
-            temp = g_nip[i][j];
-            g_nipEnOrdre[i][j] = temp;
-            temp = 0;
+            if(temp < g_nip[i][j])
+            {
+                temp = g_nip[i][j];
+                for(int k = 0; k < NB_USAGER; k++)
+                {
+                    for(int cpt = 0; cpt < 5; cpt++)
+                    {
+                        //g_nipEnOrdre[i][j] = temp;
+                        strcpy(g_nipEnOrdre[k][cpt], temp); //Copie le nip de temp dans le tableau en ordre
+                    }
+                }
+            }
+            
+            /*
+            temp = 0;*/
         }
     }
 }
