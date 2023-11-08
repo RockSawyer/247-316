@@ -1,7 +1,7 @@
 ### HEXMate logfile and output summary ###
 
 ### Command-line arguments ###
- C:\Users\Rock\AppData\Local\Temp\xcDsfc8.3\driver_tmp_3.o
+ C:\Users\Rock\AppData\Local\Temp\xcAs1i0.\driver_tmp_3.o
  -Odist/Mini_board_config/production\Lab4_RockSawyer.X.production.hex
  -logfile=dist/Mini_board_config/production\Lab4_RockSawyer.X.production.hxl
  -addressing=1
@@ -9,27 +9,54 @@
 
 ### Memory Usage ###
  Input file ranges:
-  0h - 3h		(C:\Users\Rock\AppData\Local\Temp\xcDsfc8.3\driver_tmp_3.o)
-  7978h - 7A2Dh		(C:\Users\Rock\AppData\Local\Temp\xcDsfc8.3\driver_tmp_3.o)
-  7A2Fh - 7FFFh		(C:\Users\Rock\AppData\Local\Temp\xcDsfc8.3\driver_tmp_3.o)
-  200000h - 200007h		(C:\Users\Rock\AppData\Local\Temp\xcDsfc8.3\driver_tmp_3.o)
-  300000h - 30000Dh		(C:\Users\Rock\AppData\Local\Temp\xcDsfc8.3\driver_tmp_3.o)
+  0h - 3h		(C:\Users\Rock\AppData\Local\Temp\xcAs1i0.\driver_tmp_3.o)
+  77C8h - 78D5h		(C:\Users\Rock\AppData\Local\Temp\xcAs1i0.\driver_tmp_3.o)
+  78D7h - 7FFFh		(C:\Users\Rock\AppData\Local\Temp\xcAs1i0.\driver_tmp_3.o)
+  200000h - 200007h		(C:\Users\Rock\AppData\Local\Temp\xcAs1i0.\driver_tmp_3.o)
+  300000h - 30000Dh		(C:\Users\Rock\AppData\Local\Temp\xcAs1i0.\driver_tmp_3.o)
  Unused ranges:
-  4h - 7977h
-  7A2Eh - 7A2Eh
+  4h - 77C7h
+  78D6h - 78D6h
   8000h - 1FFFFFh
   200008h - 2FFFFFh
 
 ### Hex Memory Map ###
  Legend:
   -- = Unused memory
-  H1 = Input file             (C:\Users\Rock\AppData\Local\Temp\xcDsfc8.3\driver_tmp_3.o)
+  H1 = Input file             (C:\Users\Rock\AppData\Local\Temp\xcAs1i0.\driver_tmp_3.o)
 ----------------------------------------------------------
          | 00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
 ----------------------------------------------------------
 00000000 | H1 H1 H1 H1 -- -- -- -- -- -- -- -- -- -- -- --
 ----------------------------------------------------------
-00007970 | -- -- -- -- -- -- -- -- H1 H1 H1 H1 H1 H1 H1 H1
+000077C0 | -- -- -- -- -- -- -- -- H1 H1 H1 H1 H1 H1 H1 H1
+000077D0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000077E0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000077F0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00007800 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00007810 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00007820 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00007830 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00007840 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00007850 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00007860 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00007870 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00007880 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00007890 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000078A0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000078B0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000078C0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000078D0 | H1 H1 H1 H1 H1 H1 -- H1 H1 H1 H1 H1 H1 H1 H1 H1
+000078E0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000078F0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00007900 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00007910 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00007920 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00007930 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00007940 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00007950 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00007960 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00007970 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00007980 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00007990 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 000079A0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
@@ -40,7 +67,7 @@
 000079F0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00007A00 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00007A10 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00007A20 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 -- H1
+00007A20 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00007A30 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00007A40 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00007A50 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1

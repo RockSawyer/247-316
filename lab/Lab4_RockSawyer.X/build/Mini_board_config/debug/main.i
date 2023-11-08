@@ -5155,15 +5155,16 @@ while(c=='\r' || c==27);
 # 178
 void afficheMelange(char *mot)
 {
-int oqp[4][20];
+
+char oqp[4][20];
 char lgMot = strlen(mot);
 char lettre = 0;
 int ligne = 0;
 int colonne = 0;
 
-for(int i = 0; i <5; i++)
+for(int i = 0; i <= 4; i++)
 {
-for(int j = 0; j < 21; j++)
+for(int j = 0; j <= 20; j++)
 {
 oqp[i][j] = 0;
 }

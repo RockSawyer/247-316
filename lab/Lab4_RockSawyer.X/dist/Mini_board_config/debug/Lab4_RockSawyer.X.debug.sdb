@@ -248,7 +248,7 @@
 [v _main main `A(v  1 e 1 0 ]
 {
 "33
-[v main@messages messages `[3][15]uc  1 a 45 28 ]
+[v main@messages messages `[3][15]uc  1 a 45 0 ]
 "32
 [v main@F2866 F2866 `[3][15]uc  1 s 45 F2866 ]
 "42
@@ -280,9 +280,9 @@
 [v _joueCharivari joueCharivari `A(uc  1 e 1 0 ]
 {
 "137
-[v joueCharivari@c c `uc  1 a 1 27 ]
+[v joueCharivari@c c `uc  1 a 1 119 ]
 "135
-[v joueCharivari@mot mot `*.39uc  1 p 2 25 ]
+[v joueCharivari@mot mot `*.39uc  1 p 2 117 ]
 "155
 } 0
 "99 C:\Users\Rock\Documents\GitHub\247-316\lab\Lab4_RockSawyer.X\serie.c
@@ -300,25 +300,25 @@
 "178 C:\Users\Rock\Documents\GitHub\247-316\lab\Lab4_RockSawyer.X\main.c
 [v _afficheMelange afficheMelange `A(v  1 e 1 0 ]
 {
-"188
-[v afficheMelange@j j `i  1 a 2 170 ]
-"195
-[v afficheMelange@i_114 i `i  1 a 2 166 ]
-"186
-[v afficheMelange@i i `i  1 a 2 168 ]
-"180
-[v afficheMelange@oqp oqp `[4][20]i  1 a 160 0 ]
-"184
-[v afficheMelange@colonne colonne `i  1 a 2 162 ]
-"183
-[v afficheMelange@ligne ligne `i  1 a 2 160 ]
-"182
-[v afficheMelange@lettre lettre `uc  1 a 1 165 ]
+"189
+[v afficheMelange@j j `i  1 a 2 115 ]
+"196
+[v afficheMelange@i_114 i `i  1 a 2 111 ]
+"187
+[v afficheMelange@i i `i  1 a 2 113 ]
 "181
-[v afficheMelange@lgMot lgMot `uc  1 a 1 164 ]
+[v afficheMelange@oqp oqp `[4][20]uc  1 a 80 25 ]
+"185
+[v afficheMelange@colonne colonne `i  1 a 2 107 ]
+"184
+[v afficheMelange@ligne ligne `i  1 a 2 105 ]
+"183
+[v afficheMelange@lettre lettre `uc  1 a 1 110 ]
+"182
+[v afficheMelange@lgMot lgMot `uc  1 a 1 109 ]
 "178
 [v afficheMelange@mot mot `*.39uc  1 p 2 20 ]
-"207
+"208
 } 0
 "4 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\strlen.c
 [v _strlen strlen `(ui  1 e 2 0 ]

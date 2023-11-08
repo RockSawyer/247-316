@@ -177,22 +177,14 @@ bool joueCharivari(char* mot)
 
 void afficheMelange(char *mot)
 {   
-    int oqp[4][20];
+    //bool occupe = false;
+    char oqp[4][20];
     char lgMot = strlen(mot);
     char lettre = 0;
     int ligne = 0;
     int colonne = 0;
     
-    for(int i = 0; i <5; i++)
-    {
-        for(int j = 0; j < 21; j++)
-        {
-            oqp[i][j] = false;
-        }
-    }
-    do
-    {
-        for(int i = 0 ; i <= lgMot; i++)
+
         {
             lettre = mot[i];
             ligne = rand()%20;
@@ -202,6 +194,5 @@ void afficheMelange(char *mot)
         }
     }    
     
-    while(oqp[4][20] == true);
     
 }

@@ -3478,118 +3478,118 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _mot `*uc ~T0 @X0 1 r1 ]
 "179
 [f ]
-[v F2885 `uc ~T0 @X0 -> 20 `i t ]
-"181
+[v F2885 `i ~T0 @X0 -> 20 `i t ]
+"180
 [v _oqp `F2885 ~T0 @X0 -> 4 `i a ]
-"182
+"181
 [v _lgMot `uc ~T0 @X0 1 a ]
-[; ;main.c: 181: char oqp[4][20];
-[; ;main.c: 182: char lgMot = strlen(mot);
+[; ;main.c: 180: int oqp[4][20];
+[; ;main.c: 181: char lgMot = strlen(mot);
 [e = _lgMot -> ( _strlen (1 -> _mot `*Cuc `uc ]
-"183
+"182
 [v _lettre `uc ~T0 @X0 1 a ]
-[; ;main.c: 183: char lettre = 0;
+[; ;main.c: 182: char lettre = 0;
 [e = _lettre -> -> 0 `i `uc ]
-"184
+"183
 [v _ligne `i ~T0 @X0 1 a ]
-[; ;main.c: 184: int ligne = 0;
+[; ;main.c: 183: int ligne = 0;
 [e = _ligne -> 0 `i ]
-"185
+"184
 [v _colonne `i ~T0 @X0 1 a ]
-[; ;main.c: 185: int colonne = 0;
+[; ;main.c: 184: int colonne = 0;
 [e = _colonne -> 0 `i ]
-[; ;main.c: 187: for(int i = 0; i <= 4; i++)
-"187
+[; ;main.c: 186: for(int i = 0; i <5; i++)
+"186
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $ <= _i -> 4 `i 333  ]
+[e $ < _i -> 5 `i 333  ]
 [e $U 334  ]
-"188
+"187
 [e :U 333 ]
-[; ;main.c: 188: {
+[; ;main.c: 187: {
 {
-[; ;main.c: 189: for(int j = 0; j <= 20; j++)
-"189
+[; ;main.c: 188: for(int j = 0; j < 21; j++)
+"188
 {
 [v _j `i ~T0 @X0 1 a ]
 [e = _j -> 0 `i ]
-[e $ <= _j -> 20 `i 336  ]
+[e $ < _j -> 21 `i 336  ]
 [e $U 337  ]
-"190
-[e :U 336 ]
-[; ;main.c: 190: {
-{
-[; ;main.c: 191: oqp[i][j] = 0;
-"191
-[e = *U + &U *U + &U _oqp * -> -> _i `ui `ux -> * -> # *U &U *U &U _oqp `ui -> -> 20 `i `ui `ux * -> -> _j `ui `ux -> -> # *U &U *U + &U _oqp * -> -> _i `ui `ux -> * -> # *U &U *U &U _oqp `ui -> -> 20 `i `ui `ux `ui `ux -> -> 0 `i `uc ]
-"192
-}
 "189
+[e :U 336 ]
+[; ;main.c: 189: {
+{
+[; ;main.c: 190: oqp[i][j] = 0;
+"190
+[e = *U + &U *U + &U _oqp * -> -> _i `ui `ux -> * -> # *U &U *U &U _oqp `ui -> -> 20 `i `ui `ux * -> -> _j `ui `ux -> -> # *U &U *U + &U _oqp * -> -> _i `ui `ux -> * -> # *U &U *U &U _oqp `ui -> -> 20 `i `ui `ux `ui `ux -> 0 `i ]
+"191
+}
+"188
 [e ++ _j -> 1 `i ]
-[e $ <= _j -> 20 `i 336  ]
+[e $ < _j -> 21 `i 336  ]
 [e :U 337 ]
+"191
+}
 "192
 }
-"193
-}
-"187
+"186
 [e ++ _i -> 1 `i ]
-[e $ <= _i -> 4 `i 333  ]
+[e $ < _i -> 5 `i 333  ]
 [e :U 334 ]
-"193
+"192
 }
+[; ;main.c: 191: }
 [; ;main.c: 192: }
-[; ;main.c: 193: }
-[; ;main.c: 194: do
-"194
+[; ;main.c: 193: do
+"193
 [e :U 341 ]
-[; ;main.c: 195: {
-"195
+[; ;main.c: 194: {
+"194
 {
-[; ;main.c: 196: for(int i = 0 ; i <= lgMot; i++)
-"196
+[; ;main.c: 195: for(int i = 0 ; i <= lgMot; i++)
+"195
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
 [e $U 345  ]
-"197
-[e :U 342 ]
-[; ;main.c: 197: {
-{
-[; ;main.c: 198: lettre = mot[i];
-"198
-[e = _lettre *U + _mot * -> _i `x -> -> # *U _mot `i `x ]
-[; ;main.c: 199: ligne = rand()%20;
-"199
-[e = _ligne % ( _rand ..  -> 20 `i ]
-[; ;main.c: 200: colonne = rand()%4;
-"200
-[e = _colonne % ( _rand ..  -> 4 `i ]
-[; ;main.c: 201: lcd_gotoXY(ligne, colonne);
-"201
-[e ( _lcd_gotoXY (2 , -> _ligne `uc -> _colonne `uc ]
-[; ;main.c: 202: lcd_ecritChar(lettre);
-"202
-[e ( _lcd_ecritChar (1 _lettre ]
-"203
-}
 "196
+[e :U 342 ]
+[; ;main.c: 196: {
+{
+[; ;main.c: 197: lettre = mot[i];
+"197
+[e = _lettre *U + _mot * -> _i `x -> -> # *U _mot `i `x ]
+[; ;main.c: 198: ligne = rand()%20;
+"198
+[e = _ligne % ( _rand ..  -> 20 `i ]
+[; ;main.c: 199: colonne = rand()%4;
+"199
+[e = _colonne % ( _rand ..  -> 4 `i ]
+[; ;main.c: 200: lcd_gotoXY(ligne, colonne);
+"200
+[e ( _lcd_gotoXY (2 , -> _ligne `uc -> _colonne `uc ]
+[; ;main.c: 201: lcd_ecritChar(lettre);
+"201
+[e ( _lcd_ecritChar (1 _lettre ]
+"202
+}
+"195
 [e ++ _i -> 1 `i ]
 [e :U 345 ]
 [e $ <= _i -> _lgMot `i 342  ]
 [e :U 343 ]
+"202
+}
 "203
 }
-"204
-}
+[; ;main.c: 202: }
 [; ;main.c: 203: }
-[; ;main.c: 204: }
-[; ;main.c: 206: while(oqp[4][20] == 1);
-"206
-[e $ == -> *U + &U *U + &U _oqp * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _oqp `ui -> -> 20 `i `ui `ux * -> -> -> 20 `i `ui `ux -> -> # *U &U *U + &U _oqp * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _oqp `ui -> -> 20 `i `ui `ux `ui `ux `i -> 1 `i 341  ]
+[; ;main.c: 205: while(oqp[4][20] == 1);
+"205
+[e $ == *U + &U *U + &U _oqp * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _oqp `ui -> -> 20 `i `ui `ux * -> -> -> 20 `i `ui `ux -> -> # *U &U *U + &U _oqp * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _oqp `ui -> -> 20 `i `ui `ux `ui `ux -> 1 `i 341  ]
 [e :U 340 ]
-[; ;main.c: 208: }
-"208
+[; ;main.c: 207: }
+"207
 [e :UE 332 ]
 }
