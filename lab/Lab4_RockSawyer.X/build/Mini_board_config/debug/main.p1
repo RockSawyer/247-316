@@ -1,13 +1,13 @@
 Version 3.2 HI-TECH Software Intermediate Code
 [p mainexit ]
-"24 main.c
+"25 main.c
 [v _initialisation `(v ~T0 @X0 0 ef ]
 "27 Lcd4Lignes.h
 [v _lcd_init `(v ~T0 @X0 0 ef ]
 "11 serie.h
 [v _init_serie `(v ~T0 @X0 0 ef ]
-"26 main.c
-[v _jouePendu `(v ~T0 @X0 0 ef1`*uc ]
+"28 main.c
+[v _joueCharivari `(uc ~T0 @X0 0 ef1`*uc ]
 "2032 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18F-K_DFP/1.11.281/xc8\pic\include\proc\pic18f45k20.h
 [v _TRISA `Vuc ~T0 @X0 0 e@3986 ]
 "2254
@@ -18,12 +18,46 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _strlen `(ui ~T0 @X0 0 ef1`*Cuc ]
 "45 Lcd4Lignes.h
 [v _lcd_ecritChar `(v ~T0 @X0 0 ef1`uc ]
-"15 serie.h
+"19 C:\Program Files\Microchip\xc8\v2.41\pic\include\c90\conio.h
 [v _kbhit `(b ~T0 @X0 0 ef ]
-"13
+"14
 [v _getch `(uc ~T0 @X0 0 ef ]
 "34 Lcd4Lignes.h
 [v _lcd_gotoXY `(v ~T0 @X0 0 ef2`uc`uc ]
+"29 main.c
+[v _afficheMelange `(v ~T0 @X0 0 ef1`*uc ]
+"75 C:\Program Files\Microchip\xc8\v2.41\pic\include\c90\stdlib.h
+[v _rand `(i ~T0 @X0 0 ef ]
+[; ;__size_t.h: 4: typedef unsigned size_t;
+[; ;stdarg.h: 7: typedef void * va_list[1];
+[; ;stdarg.h: 10: extern void * __va_start(void);
+[; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
+[; ;stdio.h: 43: struct __prbuf
+[; ;stdio.h: 44: {
+[; ;stdio.h: 45: char * ptr;
+[; ;stdio.h: 46: void (* func)(char);
+[; ;stdio.h: 47: };
+[; ;errno.h: 29: extern int errno;
+[; ;conio.h: 12: extern void init_uart(void);
+[; ;conio.h: 14: extern char getch(void);
+[; ;conio.h: 15: extern char getche(void);
+[; ;conio.h: 16: extern void putch(char);
+[; ;conio.h: 17: extern void ungetch(char);
+[; ;conio.h: 19: extern __bit kbhit(void);
+[; ;conio.h: 23: extern char * cgets(char *);
+[; ;conio.h: 24: extern void cputs(const char *);
+[; ;stdio.h: 88: extern int cprintf(char *, ...);
+[; ;stdio.h: 93: extern int _doprnt(struct __prbuf *, const register char *, register va_list);
+[; ;stdio.h: 183: extern char * gets(char *);
+[; ;stdio.h: 184: extern int puts(const char *);
+[; ;stdio.h: 185: extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
+[; ;stdio.h: 186: extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
+[; ;stdio.h: 187: extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
+[; ;stdio.h: 188: extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
+[; ;stdio.h: 189: extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
+[; ;stdio.h: 190: extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
+[; ;stdio.h: 194: extern int sprintf(char *, const char *, ...);
+[; ;stdio.h: 195: extern int printf(const char *, ...);
 [; ;xc.h: 18: extern const char __xc8_OPTIM_SPEED;
 [; ;xc.h: 20: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -3018,7 +3052,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;serie.h: 13: char getch(void);
 [; ;serie.h: 14: char getche(void);
 [; ;serie.h: 15: __bit kbhit(void);
-[; ;__size_t.h: 4: typedef unsigned size_t;
 [; ;string.h: 14: extern void * memcpy(void *, const void *, size_t);
 [; ;string.h: 15: extern void * memmove(void *, const void *, size_t);
 [; ;string.h: 16: extern void * memset(void *, int, size_t);
@@ -3045,21 +3078,73 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;string.h: 58: extern char * strichr(const char *, int);
 [; ;string.h: 59: extern char * strrchr(const char *, int);
 [; ;string.h: 60: extern char * strrichr(const char *, int);
-[; ;main.c: 24: void initialisation(void);
-[; ;main.c: 26: void jouePendu(char* mot);
+[; ;stdlib.h: 7: typedef unsigned short wchar_t;
+[; ;stdlib.h: 15: typedef struct {
+[; ;stdlib.h: 16: int rem;
+[; ;stdlib.h: 17: int quot;
+[; ;stdlib.h: 18: } div_t;
+[; ;stdlib.h: 19: typedef struct {
+[; ;stdlib.h: 20: unsigned rem;
+[; ;stdlib.h: 21: unsigned quot;
+[; ;stdlib.h: 22: } udiv_t;
+[; ;stdlib.h: 23: typedef struct {
+[; ;stdlib.h: 24: long quot;
+[; ;stdlib.h: 25: long rem;
+[; ;stdlib.h: 26: } ldiv_t;
+[; ;stdlib.h: 27: typedef struct {
+[; ;stdlib.h: 28: unsigned long quot;
+[; ;stdlib.h: 29: unsigned long rem;
+[; ;stdlib.h: 30: } uldiv_t;
+[; ;stdlib.h: 65: extern double atof(const char *);
+[; ;stdlib.h: 66: extern double strtod(const char *, const char **);
+[; ;stdlib.h: 67: extern int atoi(const char *);
+[; ;stdlib.h: 68: extern unsigned xtoi(const char *);
+[; ;stdlib.h: 69: extern long atol(const char *);
+[; ;stdlib.h: 73: extern long strtol(const char *, char **, int);
+[; ;stdlib.h: 75: extern int rand(void);
+[; ;stdlib.h: 76: extern void srand(unsigned int);
+[; ;stdlib.h: 77: extern void * calloc(size_t, size_t);
+[; ;stdlib.h: 78: extern div_t div(int numer, int denom);
+[; ;stdlib.h: 79: extern udiv_t udiv(unsigned numer, unsigned denom);
+[; ;stdlib.h: 80: extern ldiv_t ldiv(long numer, long denom);
+[; ;stdlib.h: 81: extern uldiv_t uldiv(unsigned long numer,unsigned long denom);
+[; ;stdlib.h: 85: extern unsigned long _lrotl(unsigned long value, unsigned int shift);
+[; ;stdlib.h: 86: extern unsigned long _lrotr(unsigned long value, unsigned int shift);
+[; ;stdlib.h: 87: extern unsigned int _rotl(unsigned int value, unsigned int shift);
+[; ;stdlib.h: 88: extern unsigned int _rotr(unsigned int value, unsigned int shift);
+[; ;stdlib.h: 93: extern void * malloc(size_t);
+[; ;stdlib.h: 94: extern void free(void *);
+[; ;stdlib.h: 95: extern void * realloc(void *, size_t);
+[; ;stdlib.h: 104: extern int atexit(void (*)(void));
+[; ;stdlib.h: 105: extern char * getenv(const char *);
+[; ;stdlib.h: 106: extern char ** environ;
+[; ;stdlib.h: 107: extern int system(char *);
+[; ;stdlib.h: 108: extern void qsort(void *, size_t, size_t, int (*)(const void *, const void *));
+[; ;stdlib.h: 109: extern void * bsearch(const void *, void *, size_t, size_t, int(*)(const void *, const void *));
+[; ;stdlib.h: 110: extern int abs(int);
+[; ;stdlib.h: 111: extern long labs(long);
+[; ;stdlib.h: 113: extern char * itoa(char * buf, int val, int base);
+[; ;stdlib.h: 114: extern char * utoa(char * buf, unsigned val, int base);
+[; ;stdlib.h: 119: extern char * ltoa(char * buf, long val, int base);
+[; ;stdlib.h: 120: extern char * ultoa(char * buf, unsigned long val, int base);
+[; ;stdlib.h: 122: extern char * ftoa(float f, int * status);
+[; ;main.c: 25: void initialisation(void);
+[; ;main.c: 27: void jouePendu(char* mot);
+[; ;main.c: 28: bool joueCharivari(char* mot);
+[; ;main.c: 29: void afficheMelange(char* mot);
 [v $root$_main `(v ~T0 @X0 0 e ]
-[v F2683 `(v ~T0 @X0 1 tf ]
+[v F2863 `(v ~T0 @X0 1 tf ]
 "31 main.c
-[v _main `AF2683 ~T0 @X0 1 e ]
+[v _main `AF2863 ~T0 @X0 1 e ]
 "32
 {
 [; ;main.c: 31: void main(void)
 [; ;main.c: 32: {
 [e :U _main ]
 [f ]
-[v F2685 `uc ~T0 @X0 -> 15 `i t ]
-[v F2686 `F2685 ~T0 @X0 -> 3 `i s ]
-[i F2686
+[v F2865 `uc ~T0 @X0 -> 15 `i t ]
+[v F2866 `F2865 ~T0 @X0 -> 3 `i s ]
+[i F2866
 :U ..
 :U ..
 -> 112 `c
@@ -3091,9 +3176,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 ..
 ]
 "33
-[v _messages `F2685 ~T0 @X0 -> 3 `i a ]
+[v _messages `F2865 ~T0 @X0 -> 3 `i a ]
 [; ;main.c: 33: char messages[3][15] = {"portable","2eMot","3eMot"};
-[e = _messages F2686 ]
+[e = _messages F2866 ]
 [; ;main.c: 34: initialisation();
 "34
 [e ( _initialisation ..  ]
@@ -3103,233 +3188,408 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 36: init_serie();
 "36
 [e ( _init_serie ..  ]
-[; ;main.c: 39: jouePendu(messages[0]);
-"39
-[e ( _jouePendu (1 &U *U + &U _messages * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _messages `ui -> -> 15 `i `ui `ux ]
-[; ;main.c: 41: }
-"41
-[e :UE 296 ]
+[; ;main.c: 40: joueCharivari(messages[0]);
+"40
+[e ( _joueCharivari (1 &U *U + &U _messages * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _messages `ui -> -> 15 `i `ui `ux ]
+[; ;main.c: 42: }
+"42
+[e :UE 301 ]
 }
-[v F2688 `(v ~T0 @X0 1 tf ]
-"49
-[v _initialisation `AF2688 ~T0 @X0 1 e ]
+[v F2868 `(v ~T0 @X0 1 tf ]
 "50
+[v _initialisation `AF2868 ~T0 @X0 1 e ]
+"51
 {
-[; ;main.c: 49: void initialisation(void)
-[; ;main.c: 50: {
+[; ;main.c: 50: void initialisation(void)
+[; ;main.c: 51: {
 [e :U _initialisation ]
 [f ]
-[; ;main.c: 51: TRISA = 0;
-"51
-[e = _TRISA -> -> 0 `i `uc ]
-[; ;main.c: 52: TRISB = 0;
+[; ;main.c: 52: TRISA = 0;
 "52
+[e = _TRISA -> -> 0 `i `uc ]
+[; ;main.c: 53: TRISB = 0;
+"53
 [e = _TRISB -> -> 0 `i `uc ]
-[; ;main.c: 55: ANSEL = 0;
-"55
+[; ;main.c: 56: ANSEL = 0;
+"56
 [e = _ANSEL -> -> 0 `i `uc ]
-[; ;main.c: 57: }
-"57
-[e :UE 297 ]
+[; ;main.c: 58: }
+"58
+[e :UE 302 ]
 }
-[v F2690 `(v ~T0 @X0 1 tf1`*uc ]
-"80
-[v _jouePendu `AF2690 ~T0 @X0 1 e ]
-"81
+[v F2870 `(v ~T0 @X0 1 tf1`*uc ]
+"69
+[v _jouePendu `AF2870 ~T0 @X0 1 e ]
+"70
 {
-[; ;main.c: 80: void jouePendu(char *mot)
-[; ;main.c: 81: {
+[; ;main.c: 69: void jouePendu(char *mot)
+[; ;main.c: 70: {
 [e :U _jouePendu ]
-"80
+"69
 [v _mot `*uc ~T0 @X0 1 r1 ]
-"81
+"70
 [f ]
-"82
+"71
 [v _toutTrouver `uc ~T0 @X0 1 a ]
-[; ;main.c: 82: bool toutTrouver = 1;
+[; ;main.c: 71: bool toutTrouver = 1;
 [e = _toutTrouver -> -> 1 `i `uc ]
-"83
+"72
 [v _Lettre `uc ~T0 @X0 1 a ]
-[; ;main.c: 83: char Lettre = 0;
+[; ;main.c: 72: char Lettre = 0;
 [e = _Lettre -> -> 0 `i `uc ]
-"84
+"73
 [v _trouve `uc ~T0 @X0 -> 15 `i a ]
-"85
+"74
 [v _longMess `i ~T0 @X0 1 a ]
-[; ;main.c: 84: bool trouve[15];
-[; ;main.c: 85: int longMess = strlen(mot);
+[; ;main.c: 73: bool trouve[15];
+[; ;main.c: 74: int longMess = strlen(mot);
 [e = _longMess -> ( _strlen (1 -> _mot `*Cuc `i ]
-[; ;main.c: 87: for(int i = 0; i < longMess; i++)
-"87
+[; ;main.c: 76: for(int i = 0; i < longMess; i++)
+"76
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $U 302  ]
-"88
-[e :U 299 ]
-[; ;main.c: 88: {
+[e $U 307  ]
+"77
+[e :U 304 ]
+[; ;main.c: 77: {
 {
-[; ;main.c: 89: trouve[i] = 0;
-"89
+[; ;main.c: 78: trouve[i] = 0;
+"78
 [e = *U + &U _trouve * -> -> _i `ui `ux -> -> # *U &U _trouve `ui `ux -> -> 0 `i `uc ]
-[; ;main.c: 90: lcd_ecritChar('_');
-"90
+[; ;main.c: 79: lcd_ecritChar('_');
+"79
 [e ( _lcd_ecritChar (1 -> -> 95 `ui `uc ]
-"91
+"80
 }
-"87
+"76
 [e ++ _i -> 1 `i ]
-[e :U 302 ]
-[e $ < _i _longMess 299  ]
-[e :U 300 ]
-"91
-}
-[; ;main.c: 91: }
-[; ;main.c: 92: do
-"92
+[e :U 307 ]
+[e $ < _i _longMess 304  ]
 [e :U 305 ]
-[; ;main.c: 93: {
-"93
+"80
+}
+[; ;main.c: 80: }
+[; ;main.c: 81: do
+"81
+[e :U 310 ]
+[; ;main.c: 82: {
+"82
 {
-[; ;main.c: 94: if(kbhit())
+[; ;main.c: 83: if(kbhit())
+"83
+[e $ ! ( _kbhit ..  311  ]
+[; ;main.c: 84: {
+"84
+{
+[; ;main.c: 85: Lettre = getch();
+"85
+[e = _Lettre ( _getch ..  ]
+[; ;main.c: 86: for(int i = 0; i < longMess; i++)
+"86
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $U 315  ]
+"87
+[e :U 312 ]
+[; ;main.c: 87: {
+{
+[; ;main.c: 88: if(Lettre == mot[i])
+"88
+[e $ ! == -> _Lettre `i -> *U + _mot * -> _i `x -> -> # *U _mot `i `x `i 316  ]
+[; ;main.c: 89: {
+"89
+{
+[; ;main.c: 90: trouve[i] = 1;
+"90
+[e = *U + &U _trouve * -> -> _i `ui `ux -> -> # *U &U _trouve `ui `ux -> -> 1 `i `uc ]
+"93
+}
+[e :U 316 ]
 "94
-[e $ ! ( _kbhit ..  306  ]
-[; ;main.c: 95: {
+}
+"86
+[e ++ _i -> 1 `i ]
+[e :U 315 ]
+[e $ < _i _longMess 312  ]
+[e :U 313 ]
+"94
+}
+[; ;main.c: 93: }
+[; ;main.c: 94: }
+[; ;main.c: 95: for(int i = 0; i < longMess; i++)
 "95
 {
-[; ;main.c: 96: Lettre = getch();
-"96
-[e = _Lettre ( _getch ..  ]
-[; ;main.c: 97: for(int i = 0; i < longMess; i++)
-"97
-{
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $U 310  ]
-"98
-[e :U 307 ]
+[e $U 320  ]
+"96
+[e :U 317 ]
+[; ;main.c: 96: {
+{
+[; ;main.c: 97: if(trouve[i] == 1)
+"97
+[e $ ! == -> *U + &U _trouve * -> -> _i `ui `ux -> -> # *U &U _trouve `ui `ux `i -> 1 `i 321  ]
 [; ;main.c: 98: {
+"98
 {
-[; ;main.c: 99: if(Lettre == mot[i])
-"99
-[e $ ! == -> _Lettre `i -> *U + _mot * -> _i `x -> -> # *U _mot `i `x `i 311  ]
-[; ;main.c: 100: {
+[; ;main.c: 100: lcd_gotoXY(i+1,1);
 "100
-{
-[; ;main.c: 101: trouve[i] = 1;
+[e ( _lcd_gotoXY (2 , -> + _i -> 1 `i `uc -> -> 1 `i `uc ]
+[; ;main.c: 101: lcd_ecritChar(mot[i]);
 "101
-[e = *U + &U _trouve * -> -> _i `ui `ux -> -> # *U &U _trouve `ui `ux -> -> 1 `i `uc ]
+[e ( _lcd_ecritChar (1 *U + _mot * -> _i `x -> -> # *U _mot `i `x ]
+"103
+}
+[e :U 321 ]
 "104
 }
-[e :U 311 ]
-"105
-}
-"97
+"95
 [e ++ _i -> 1 `i ]
-[e :U 310 ]
-[e $ < _i _longMess 307  ]
-[e :U 308 ]
-"105
+[e :U 320 ]
+[e $ < _i _longMess 317  ]
+[e :U 318 ]
+"104
 }
+[; ;main.c: 103: }
 [; ;main.c: 104: }
-[; ;main.c: 105: }
 [; ;main.c: 106: for(int i = 0; i < longMess; i++)
 "106
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $U 315  ]
+[e $U 325  ]
 "107
-[e :U 312 ]
+[e :U 322 ]
 [; ;main.c: 107: {
 {
 [; ;main.c: 108: if(trouve[i] == 1)
 "108
-[e $ ! == -> *U + &U _trouve * -> -> _i `ui `ux -> -> # *U &U _trouve `ui `ux `i -> 1 `i 316  ]
+[e $ ! == -> *U + &U _trouve * -> -> _i `ui `ux -> -> # *U &U _trouve `ui `ux `i -> 1 `i 326  ]
 [; ;main.c: 109: {
 "109
 {
-[; ;main.c: 111: lcd_gotoXY(i+1,1);
+[; ;main.c: 110: toutTrouver = 1;
+"110
+[e = _toutTrouver -> -> 1 `i `uc ]
+[; ;main.c: 111: break;
 "111
-[e ( _lcd_gotoXY (2 , -> + _i -> 1 `i `uc -> -> 1 `i `uc ]
-[; ;main.c: 112: lcd_ecritChar(mot[i]);
+[e $U 323  ]
 "112
-[e ( _lcd_ecritChar (1 *U + _mot * -> _i `x -> -> # *U _mot `i `x ]
-"114
 }
-[e :U 316 ]
+[; ;main.c: 112: }
+[e $U 327  ]
+"113
+[e :U 326 ]
+[; ;main.c: 113: else
+[; ;main.c: 114: {
+"114
+{
+[; ;main.c: 115: toutTrouver = 0;
 "115
+[e = _toutTrouver -> -> 0 `i `uc ]
+"117
+}
+[e :U 327 ]
+"119
 }
 "106
 [e ++ _i -> 1 `i ]
-[e :U 315 ]
-[e $ < _i _longMess 312  ]
-[e :U 313 ]
-"115
+[e :U 325 ]
+[e $ < _i _longMess 322  ]
+[e :U 323 ]
+"119
 }
-[; ;main.c: 114: }
-[; ;main.c: 115: }
-[; ;main.c: 117: for(int i = 0; i < longMess; i++)
-"117
+"121
+}
+[e :U 311 ]
+"122
+}
+[; ;main.c: 117: }
+[; ;main.c: 119: }
+[; ;main.c: 121: }
+[; ;main.c: 122: }
+[; ;main.c: 124: while(toutTrouver);
+"124
+[e $ != -> _toutTrouver `i -> -> -> 0 `i `uc `i 310  ]
+[e :U 309 ]
+[; ;main.c: 127: }
+"127
+[e :UE 303 ]
+}
+[v F2880 `(uc ~T0 @X0 1 tf1`*uc ]
+"135
+[v _joueCharivari `AF2880 ~T0 @X0 1 e ]
+"136
+{
+[; ;main.c: 135: bool joueCharivari(char* mot)
+[; ;main.c: 136: {
+[e :U _joueCharivari ]
+"135
+[v _mot `*uc ~T0 @X0 1 r1 ]
+"136
+[f ]
+"137
+[v _c `uc ~T0 @X0 1 a ]
+[; ;main.c: 137: char c = 0;
+[e = _c -> -> 0 `i `uc ]
+[; ;main.c: 140: afficheMelange(mot);
+"140
+[e ( _afficheMelange (1 _mot ]
+[; ;main.c: 142: do
+"142
+[e :U 331 ]
+[; ;main.c: 143: {
+"143
+{
+[; ;main.c: 144: kbhit();
+"144
+[e ( _kbhit ..  ]
+[; ;main.c: 145: {
+"145
+{
+[; ;main.c: 146: c = getch();
+"146
+[e = _c ( _getch ..  ]
+"148
+}
+"149
+}
+[; ;main.c: 148: }
+[; ;main.c: 149: }
+[; ;main.c: 150: while(c=='\r' || c==27);
+"150
+[e $ || == -> _c `ui -> 13 `ui == -> _c `i -> 27 `i 331  ]
+[e :U 330 ]
+[; ;main.c: 155: }
+"155
+[e :UE 328 ]
+}
+[v F2883 `(v ~T0 @X0 1 tf1`*uc ]
+"178
+[v _afficheMelange `AF2883 ~T0 @X0 1 e ]
+"179
+{
+[; ;main.c: 178: void afficheMelange(char *mot)
+[; ;main.c: 179: {
+[e :U _afficheMelange ]
+"178
+[v _mot `*uc ~T0 @X0 1 r1 ]
+"179
+[f ]
+[v F2885 `i ~T0 @X0 -> 20 `i t ]
+"180
+[v _oqp `F2885 ~T0 @X0 -> 4 `i a ]
+"181
+[v _lgMot `uc ~T0 @X0 1 a ]
+[; ;main.c: 180: int oqp[4][20];
+[; ;main.c: 181: char lgMot = strlen(mot);
+[e = _lgMot -> ( _strlen (1 -> _mot `*Cuc `uc ]
+"182
+[v _lettre `uc ~T0 @X0 1 a ]
+[; ;main.c: 182: char lettre = 0;
+[e = _lettre -> -> 0 `i `uc ]
+"183
+[v _ligne `i ~T0 @X0 1 a ]
+[; ;main.c: 183: int ligne = 0;
+[e = _ligne -> 0 `i ]
+"184
+[v _colonne `i ~T0 @X0 1 a ]
+[; ;main.c: 184: int colonne = 0;
+[e = _colonne -> 0 `i ]
+[; ;main.c: 186: for(int i = 0; i <5; i++)
+"186
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $U 320  ]
-"118
-[e :U 317 ]
-[; ;main.c: 118: {
+[e $ < _i -> 5 `i 333  ]
+[e $U 334  ]
+"187
+[e :U 333 ]
+[; ;main.c: 187: {
 {
-[; ;main.c: 119: if(trouve[i] == 1)
-"119
-[e $ ! == -> *U + &U _trouve * -> -> _i `ui `ux -> -> # *U &U _trouve `ui `ux `i -> 1 `i 321  ]
-[; ;main.c: 120: {
-"120
+[; ;main.c: 188: for(int j = 0; j < 21; j++)
+"188
 {
-[; ;main.c: 121: toutTrouver = 1;
-"121
-[e = _toutTrouver -> -> 1 `i `uc ]
-[; ;main.c: 122: break;
-"122
-[e $U 318  ]
-"123
-}
-[; ;main.c: 123: }
-[e $U 322  ]
-"124
-[e :U 321 ]
-[; ;main.c: 124: else
-[; ;main.c: 125: {
-"125
+[v _j `i ~T0 @X0 1 a ]
+[e = _j -> 0 `i ]
+[e $ < _j -> 21 `i 336  ]
+[e $U 337  ]
+"189
+[e :U 336 ]
+[; ;main.c: 189: {
 {
-[; ;main.c: 126: toutTrouver = 0;
-"126
-[e = _toutTrouver -> -> 0 `i `uc ]
-"127
+[; ;main.c: 190: oqp[i][j] = 0;
+"190
+[e = *U + &U *U + &U _oqp * -> -> _i `ui `ux -> * -> # *U &U *U &U _oqp `ui -> -> 20 `i `ui `ux * -> -> _j `ui `ux -> -> # *U &U *U + &U _oqp * -> -> _i `ui `ux -> * -> # *U &U *U &U _oqp `ui -> -> 20 `i `ui `ux `ui `ux -> 0 `i ]
+"191
 }
-[e :U 322 ]
-"129
+"188
+[e ++ _j -> 1 `i ]
+[e $ < _j -> 21 `i 336  ]
+[e :U 337 ]
+"191
 }
-"117
+"192
+}
+"186
 [e ++ _i -> 1 `i ]
-[e :U 320 ]
-[e $ < _i _longMess 317  ]
-[e :U 318 ]
-"129
+[e $ < _i -> 5 `i 333  ]
+[e :U 334 ]
+"192
 }
-"131
+[; ;main.c: 191: }
+[; ;main.c: 192: }
+[; ;main.c: 193: do
+"193
+[e :U 341 ]
+[; ;main.c: 194: {
+"194
+{
+[; ;main.c: 195: for(int i = 0 ; i <= lgMot; i++)
+"195
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $U 345  ]
+"196
+[e :U 342 ]
+[; ;main.c: 196: {
+{
+[; ;main.c: 197: lettre = mot[i];
+"197
+[e = _lettre *U + _mot * -> _i `x -> -> # *U _mot `i `x ]
+[; ;main.c: 198: ligne = rand()%20;
+"198
+[e = _ligne % ( _rand ..  -> 20 `i ]
+[; ;main.c: 199: colonne = rand()%4;
+"199
+[e = _colonne % ( _rand ..  -> 4 `i ]
+[; ;main.c: 200: lcd_gotoXY(ligne, colonne);
+"200
+[e ( _lcd_gotoXY (2 , -> _ligne `uc -> _colonne `uc ]
+[; ;main.c: 201: lcd_ecritChar(lettre);
+"201
+[e ( _lcd_ecritChar (1 _lettre ]
+"202
 }
-[e :U 306 ]
-"132
+"195
+[e ++ _i -> 1 `i ]
+[e :U 345 ]
+[e $ <= _i -> _lgMot `i 342  ]
+[e :U 343 ]
+"202
 }
-[; ;main.c: 127: }
-[; ;main.c: 129: }
-[; ;main.c: 131: }
-[; ;main.c: 132: }
-[; ;main.c: 134: while(toutTrouver);
-"134
-[e $ != -> _toutTrouver `i -> -> -> 0 `i `uc `i 305  ]
-[e :U 304 ]
-[; ;main.c: 137: }
-"137
-[e :UE 298 ]
+"203
+}
+[; ;main.c: 202: }
+[; ;main.c: 203: }
+[; ;main.c: 205: while(oqp[4][20] == 1);
+"205
+[e $ == *U + &U *U + &U _oqp * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _oqp `ui -> -> 20 `i `ui `ux * -> -> -> 20 `i `ui `ux -> -> # *U &U *U + &U _oqp * -> -> -> 4 `i `ui `ux -> * -> # *U &U *U &U _oqp `ui -> -> 20 `i `ui `ux `ui `ux -> 1 `i 341  ]
+[e :U 340 ]
+[; ;main.c: 207: }
+"207
+[e :UE 332 ]
 }

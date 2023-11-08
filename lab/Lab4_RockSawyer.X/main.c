@@ -9,23 +9,24 @@
  *     Compilateur: XC8 (version 2.40)
  *     Matériel: Carte démo du Pickit4. PIC 18F45K20
  */
-
+#include <stdio.h>          //pour printf
 #include <xc.h>
-#include <stdbool.h>  // pour l'utilisation du type bool
+#include <stdbool.h>        // pour l'utilisation du type bool
 #include "Lcd4Lignes.h"
 #include "serie.h"
-#include <string.h> //pour strlen
-#define _XTAL_FREQ 1000000 //Constante utilisée par __delay_ms(x). Doit = fréq interne du uC
+#include <string.h>         //pour strlen
+#include <stdlib.h>         //pour rand
+#define _XTAL_FREQ 1000000  //Constante utilisée par __delay_ms(x). Doit = fréq interne du uC
 #define NB_MSG 3
 #define LONG_MSG 15
 
 
 
-void initialisation(void); //fonction qui initialise le pic
+void initialisation(void);  //fonction qui initialise le pic
 //void MenuAccueil(void);
 void jouePendu(char* mot);
 bool joueCharivari(char* mot);
-//void afficheMelange(mot);
+void afficheMelange(char* mot);
 
 void main(void)
 {
@@ -35,7 +36,8 @@ void main(void)
     init_serie();
     //MenuAccueil();
    // char trouve[LONG_MSG];
-    jouePendu(messages[0]);       
+    //jouePendu(messages[0]);
+    joueCharivari(messages[0]);
     
 }
 
@@ -133,19 +135,19 @@ void jouePendu(char *mot)
 bool joueCharivari(char* mot)
 {
     char c = 0;
-    char msgRecu[];
+    //char msgRecu[];
     
-    //afficheMelange(mot);
+    afficheMelange(mot);
    
     do
     {
        kbhit();
        {
             c = getch();
-            msgRecu[i] = c;
+            //msgRecu = c;
        }
     }   
-    while(c == '\r' || );
+    while(c=='\r' || c==27);
         
      
     
@@ -165,3 +167,41 @@ bool joueCharivari(char* mot)
 {
     lcd_putMessage("1- Bonhomme pendu\n2- Charivari");
 }*/
+
+
+/**
+ * @brief 
+ * @param 
+ * @return
+ */
+
+void afficheMelange(char *mot)
+{   
+    int oqp[4][20];
+    char lgMot = strlen(mot);
+    char lettre = 0;
+    int ligne = 0;
+    int colonne = 0;
+    
+    for(int i = 0; i <5; i++)
+    {
+        for(int j = 0; j < 21; j++)
+        {
+            oqp[i][j] = false;
+        }
+    }
+    do
+    {
+        for(int i = 0 ; i <= lgMot; i++)
+        {
+            lettre = mot[i];
+            ligne = rand()%20;
+            colonne = rand()%4;
+            lcd_gotoXY(ligne, colonne);
+            lcd_ecritChar(lettre);
+        }
+    }    
+    
+    while(oqp[4][20] == true);
+    
+}

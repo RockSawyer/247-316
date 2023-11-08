@@ -4908,9 +4908,8 @@ extern char * strrichr(const char *, int);
 void initialisation(void);
 
 void jouePendu(char* mot);
-
-
-
+bool joueCharivari(char* mot);
+void afficheMelange(char* mot);
 
 void main(void)
 {
@@ -4924,7 +4923,7 @@ jouePendu(messages[0]);
 
 }
 
-# 49
+# 48
 void initialisation(void)
 {
 TRISA = 0;
@@ -4935,7 +4934,7 @@ ANSEL = 0;
 
 }
 
-# 80
+# 67
 void jouePendu(char *mot)
 {
 bool toutTrouver = 1;
@@ -4983,6 +4982,7 @@ break;
 else
 {
 toutTrouver = 0;
+
 }
 
 }
@@ -4995,3 +4995,34 @@ while(toutTrouver);
 
 }
 
+# 133
+bool joueCharivari(char* mot)
+{
+char c = 0;
+char msgRecu[];
+
+afficheMelange(mot);
+
+do
+{
+kbhit();
+{
+c = getch();
+msgRecu[] = c;
+}
+}
+while(c == '\r' || );
+
+
+
+
+}
+
+# 176
+char afficheMelange(char *mot)
+{
+for( int i = 0; i < 15; i++)
+{
+printf("")
+}
+}
